@@ -1,0 +1,9 @@
+*.pyc
+__pycache__/
+.env
+*.sqlite3
+/static/
+/media/
+node_modules/
+build/
+.env.local
