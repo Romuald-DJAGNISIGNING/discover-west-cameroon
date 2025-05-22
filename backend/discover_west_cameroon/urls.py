@@ -10,6 +10,9 @@ urlpatterns = [
     path('auth/', include('dj_rest_auth.urls')),  # Login, logout, password change/reset
     path('auth/registration/', include('dj_rest_auth.registration.urls')),  # Sign-up
     path('accounts/', include('allauth.urls')),  # Handles Google OAuth flow
+    path('auth/social/', include('allauth.socialaccount.urls')),
+
+
 
     # Custom app routes (modular API endpoints)
     path('api/users/', include('users.urls')),
