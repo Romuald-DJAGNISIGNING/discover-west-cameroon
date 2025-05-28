@@ -1,60 +1,52 @@
+
+
 from rest_framework import serializers
-from django.contrib.auth import get_user_model
-from django.core.exceptions import ValidationError
-from django.conf import settings
-import os
+from .models import CustomUser
+from django.contrib.auth import authenticate
+from dj_rest_auth.registration.serializers import RegisterSerializer
 
-User = get_user_model()
 
-class UserRegistrationSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True, min_length=8)
-    confirm_password = serializers.CharField(write_only=True, min_length=8)
-    
+class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = [
-            'id',
-            'username',
-            'full_name',
-            'email',
-            'phone_number',
-            'password',
-            'confirm_password',
-            'profile_picture',
-            'id_card',
-            'gender',
-            'role',
-            'location',
-        ]
-
-    def validate_email(self, value):
-        if not value.endswith('@gmail.com'):
-            raise serializers.ValidationError("Only Gmail addresses are accepted.")
-        return value
-
-    def validate(self, attrs):
-        if attrs.get('password') != attrs.get('confirm_password'):
-            raise serializers.ValidationError("Passwords do not match.")
-        return attrs
-
-    def create(self, validated_data):
-        validated_data.pop('confirm_password')
-        password = validated_data.pop('password')
-
-        # Assign default profile picture if not provided
-        if not validated_data.get('profile_picture'):
-            validated_data['profile_picture'] = os.path.join(
-                'profile_pics',
-                getattr(settings, 'DEFAULT_PROFILE_PIC', 'default_profile_pic.jpg')
-            )
-
-        user = User(**validated_data)
-        user.set_password(password)
-        user.save()
-        return user
+        model = CustomUser
+        fields = (
+            'id', 'email', 'username', 'full_name', 'phone_number', 'profile_picture',
+            'id_card', 'gender', 'role', 'location', 'is_active', 'is_staff', 'date_joined'
+        )
+        read_only_fields = ('is_active', 'is_staff', 'date_joined')
 
 
-class UserDetailSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        exclude = ['password']
+class CustomRegisterSerializer(RegisterSerializer):
+    username = serializers.CharField(required=True)
+    full_name = serializers.CharField(required=True)
+    phone_number = serializers.CharField(required=True)
+    gender = serializers.ChoiceField(choices=[('male', 'Male'), ('female', 'Female'), ('other', 'Other')])
+    role = serializers.ChoiceField(choices=[('student', 'Student'), ('tutor', 'Tutor'), ('guide', 'Touristic Guide')])
+    location = serializers.CharField(required=False, allow_blank=True)
+    id_card = serializers.ImageField(required=True)
+    profile_picture = serializers.ImageField(required=False)
+
+    def get_cleaned_data(self):
+        data = super().get_cleaned_data()
+        data.update({
+            'username': self.validated_data.get('username', ''),
+            'full_name': self.validated_data.get('full_name', ''),
+            'phone_number': self.validated_data.get('phone_number', ''),
+            'gender': self.validated_data.get('gender', ''),
+            'role': self.validated_data.get('role', ''),
+            'location': self.validated_data.get('location', ''),
+            'id_card': self.validated_data.get('id_card'),
+            'profile_picture': self.validated_data.get('profile_picture'),
+        })
+        return data
+
+
+class CustomLoginSerializer(serializers.Serializer):
+    email_or_phone = serializers.CharField()
+    password = serializers.CharField()
+
+    def validate(self, data):
+        user = authenticate(username=data['email_or_phone'], password=data['password'])
+        if user and user.is_active:
+            return user
+        raise serializers.ValidationError("Invalid credentials.")
