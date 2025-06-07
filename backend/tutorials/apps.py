@@ -1,6 +1,9 @@
-from django.apps import AppConfig
 
+from django.apps import AppConfig
 
 class TutorialsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'tutorials'
+    verbose_name = 'Tutorials Management'
+    label = 'tutorials'
+  

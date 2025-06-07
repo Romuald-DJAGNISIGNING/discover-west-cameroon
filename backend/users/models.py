@@ -44,18 +44,20 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=150, unique=True)
     full_name = models.CharField(max_length=255)
     email = models.EmailField(unique=True, validators=[validate_gmail])
-    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$',
-    message="Phone number must be entered in the format: '+237612345678'. Up to 15 digits allowed.")
+    phone_regex = RegexValidator(
+        regex=r'^\+?1?\d{9,15}$',
+        message="Phone number must be entered in the format: '+237612345678'. Up to 15 digits allowed."
+    )
     phone_number = models.CharField(validators=[phone_regex], max_length=17, unique=True)
     
     profile_picture = models.ImageField(
         upload_to='profile_pics/',
         default=os.path.join('profile_pics', getattr(settings, 'DEFAULT_PROFILE_PIC', 'default.jpg'))
     )
-    id_card = models.ImageField(upload_to='id_cards/')
+    id_card = models.ImageField(upload_to='id_cards/', blank=True, null=True)
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
     role = models.CharField(max_length=50, choices=USER_ROLE_CHOICES)
-    location = models.CharField(max_length=255, blank=True, null=True)  # For Tour Guides or Student's home
+    location = models.CharField(max_length=255, blank=True, null=True)
 
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
@@ -66,5 +68,15 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'phone_number', 'full_name']
 
+    class Meta:
+        verbose_name = "User"
+        verbose_name_plural = "Users"
+
     def __str__(self):
         return self.email
+
+    def get_full_name(self):
+        return self.full_name
+
+    def get_short_name(self):
+        return self.username
