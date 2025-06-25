@@ -1,0 +1,22 @@
+
+{% extends "emails/base_email.html" %}
+{% block content %}
+    <title>Payment Receipt</title>
+
+    <h2>Hello {{ user.first_name }},</h2>
+
+    <p>We have received your payment.</p>
+
+    <p><strong>Payment Details:</strong></p>
+    <ul>
+        <li>Amount: {{ amount }} FCFA</li>
+        <li>Service: {{ service }}</li>
+        <li>Date: {{ date }}</li>
+        <li>Payment Method: {{ method }}</li>
+    </ul>
+
+    <p>You can view your full payment history on your dashboard.</p>
+
+    <br>
+    <p>Thank you for using Discover West Cameroon!</p>
+{% endblock %}

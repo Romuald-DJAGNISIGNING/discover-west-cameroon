@@ -6,3 +6,7 @@ class UsersConfig(AppConfig):
     name = 'users'
     verbose_name = "User Management"
     label = 'users'
+
+    
+    def ready(self):
+        import users.signals

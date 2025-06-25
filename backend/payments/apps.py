@@ -7,3 +7,6 @@ class PaymentsConfig(AppConfig):
     name = 'payments'
     verbose_name = 'Payments Management'
     label = 'payments'
+
+def ready(self):
+    import payments.signals

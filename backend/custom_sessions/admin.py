@@ -7,7 +7,7 @@ class CustomSessionAdmin(admin.ModelAdmin):
         'id',
         'session_type',
         'tutor_or_guide',
-        'student_or_visitor',
+        'learner_or_visitor',
         'topic_or_location',
         'scheduled_time',
         'duration_minutes',
@@ -18,5 +18,5 @@ class CustomSessionAdmin(admin.ModelAdmin):
     search_fields = (
         'topic_or_location',
         'tutor_or_guide__username',
-        'student_or_visitor__username',
+        'learner_or_visitor__username',
     )

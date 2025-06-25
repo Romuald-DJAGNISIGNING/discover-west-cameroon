@@ -7,3 +7,6 @@ class SupportConfig(AppConfig):
     name = 'support'
     verbose_name = "Support & Help"
     label = 'support'
+
+    def ready(self):
+        import support.signals   

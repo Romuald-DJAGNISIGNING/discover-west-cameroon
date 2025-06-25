@@ -194,3 +194,4 @@ cython_debug/
 .pypirc
 >>>>>>> 0d393526cf1c45233715febd7160c65ba247827f
 /backend/media
+/backend/static

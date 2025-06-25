@@ -6,4 +6,6 @@ class TutorialsConfig(AppConfig):
     name = 'tutorials'
     verbose_name = 'Tutorials Management'
     label = 'tutorials'
-  
+
+    def ready(self):
+        import tutorials.signals   

@@ -1,9 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
 from django.conf import settings
 from django.conf.urls.static import static
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
 
     # Authentication & Registration
@@ -11,8 +12,6 @@ urlpatterns = [
     path('auth/registration/', include('dj_rest_auth.registration.urls')),  # Sign-up
     path('accounts/', include('allauth.urls')),  # Handles Google OAuth flow
     path('auth/social/', include('allauth.socialaccount.urls')),
-
-
 
     # Custom app routes (modular API endpoints)
     path('api/users/', include('users.urls')),
@@ -28,7 +27,8 @@ urlpatterns = [
     path('api/tourism/', include('tourism.urls')),
     path('api/tutorials/', include('tutorials.urls')),
     path('api/villages/', include('villages.urls')),
-]
+    path('api/notifications/', include('notifications.urls')),
+)
 
 # Static & Media serving during development
 if settings.DEBUG:

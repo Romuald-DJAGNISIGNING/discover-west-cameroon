@@ -8,6 +8,11 @@ from .views import (
     GuideBookingStatisticViewSet,
     FeedbackSummaryViewSet,
     SystemNotificationViewSet,
+    AdminDashboardView,
+    TutorDashboardView,
+    LearnerDashboardView,
+    VisitorDashboardView,
+    GuideDashboardView,  
 )
 
 router = DefaultRouter()
@@ -21,4 +26,9 @@ router.register(r'system-notifications', SystemNotificationViewSet, basename='sy
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('admin/', AdminDashboardView.as_view(), name='admin_dashboard'),
+    path('tutor/', TutorDashboardView.as_view(), name='tutor_dashboard'),
+    path('guide/', GuideDashboardView.as_view(), name='guide_dashboard'),
+    path('learner/', LearnerDashboardView.as_view(), name='learner_dashboard'),
+    path('visitor/', VisitorDashboardView.as_view(), name='visitor_dashboard'),
 ]

@@ -7,3 +7,7 @@ class QuizzesConfig(AppConfig):
     name = 'quizzes'
     verbose_name = 'Quizzes Management'
     label = 'quizzes'
+
+    def ready(self):
+        import quizzes.signals
+        

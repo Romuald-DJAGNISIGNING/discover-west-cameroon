@@ -11,11 +11,11 @@ class CustomUserSerializer(serializers.ModelSerializer):
 
 class CustomSessionSerializer(serializers.ModelSerializer):
     tutor_or_guide = CustomUserSerializer(read_only=True)
-    student_or_visitor = CustomUserSerializer(read_only=True)
+    learner_or_visitor = CustomUserSerializer(read_only=True)
     tutor_or_guide_id = serializers.PrimaryKeyRelatedField(
         queryset=CustomUser.objects.all(), source='tutor_or_guide', write_only=True
     )
-    student_or_visitor_id = serializers.PrimaryKeyRelatedField(
+    learner_or_visitor_id = serializers.PrimaryKeyRelatedField(
         queryset=CustomUser.objects.all(), source='student_or_visitor', write_only=True
     )
 
@@ -26,6 +26,6 @@ class CustomSessionSerializer(serializers.ModelSerializer):
             'duration_minutes', 'location', 'notes', 'is_confirmed',
             'tutor_or_guide', 'student_or_visitor',
             'tutor_or_guide_id', 'student_or_visitor_id',
-            'created_at'
+            'created_at','status'
         ]
         read_only_fields = ['id', 'created_at', 'is_confirmed']

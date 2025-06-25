@@ -7,3 +7,6 @@ class CustomSessionsConfig(AppConfig):
     name = 'custom_sessions'
     verbose_name = "Custom Sessions"
     label = 'custom_sessions'
+    
+    def ready(self):
+        import custom_sessions.signals

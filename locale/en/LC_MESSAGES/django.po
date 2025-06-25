@@ -1,0 +1,2807 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-16 09:33+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\backend\assignments\models.py:6 .\backend\dashboard\models.py:156
+#: .\backend\quizzes\models.py:7 .\backend\tourism\models.py:49
+#: .\backend\tourism\models.py:68 .\backend\tourism\models.py:163
+#: .\backend\tourism\models.py:205 .\backend\tourism\models.py:219
+#: .\backend\tourism\models.py:262 .\backend\tutorials\models.py:21
+#: .\backend\tutorials\models.py:44
+msgid "Title"
+msgstr "Title"
+
+#: .\backend\assignments\models.py:7 .\backend\dashboard\models.py:32
+#: .\backend\dashboard\models.py:180 .\backend\festivals\models.py:6
+#: .\backend\payments\models.py:28 .\backend\quizzes\models.py:8
+#: .\backend\reports\models.py:35 .\backend\tourism\models.py:9
+#: .\backend\tourism\models.py:20 .\backend\tourism\models.py:35
+#: .\backend\tourism\models.py:50 .\backend\tourism\models.py:69
+#: .\backend\tourism\models.py:98 .\backend\tourism\models.py:136
+#: .\backend\tourism\models.py:164 .\backend\tourism\models.py:206
+#: .\backend\tourism\models.py:220 .\backend\tourism\models.py:263
+#: .\backend\tutorials\models.py:22 .\backend\tutorials\models.py:59
+#: .\backend\villages\models.py:9 .\backend\villages\models.py:34
+#: .\backend\villages\models.py:55
+msgid "Description"
+msgstr "Description"
+
+#: .\backend\assignments\models.py:8 .\backend\custom_sessions\models.py:40
+#: .\backend\dashboard\models.py:159 .\backend\payments\models.py:64
+#: .\backend\quizzes\models.py:15 .\backend\reports\models.py:37
+#: .\backend\reviews\models.py:30 .\backend\support\models.py:39
+#: .\backend\tourism\models.py:58 .\backend\tourism\models.py:87
+#: .\backend\tourism\models.py:112 .\backend\tourism\models.py:153
+#: .\backend\tourism\models.py:195 .\backend\tourism\models.py:209
+#: .\backend\tourism\models.py:224 .\backend\tourism\models.py:238
+#: .\backend\tourism\models.py:252 .\backend\tourism\models.py:314
+#: .\backend\tutorials\models.py:25 .\backend\tutorials\models.py:60
+msgid "Created At"
+msgstr "Created At"
+
+#: .\backend\assignments\models.py:9
+msgid "Due Date"
+msgstr "Due Date"
+
+#: .\backend\assignments\models.py:14
+msgid "Assigned By"
+msgstr "Assigned By"
+
+#: .\backend\assignments\models.py:20
+msgid "Assigned To"
+msgstr "Assigned To"
+
+#: .\backend\assignments\models.py:24 .\backend\assignments\models.py:36
+msgid "Assignment"
+msgstr "Assignment"
+
+#: .\backend\assignments\models.py:25
+msgid "Assignments"
+msgstr ""
+
+#: .\backend\assignments\models.py:41 .\backend\users\models.py:17
+msgid "Student"
+msgstr ""
+
+#: .\backend\assignments\models.py:43 .\backend\quizzes\models.py:57
+msgid "Submitted At"
+msgstr ""
+
+#: .\backend\assignments\models.py:44
+#: .\backend\env\Lib\site-packages\django\db\models\fields\files.py:244
+msgid "File"
+msgstr ""
+
+#: .\backend\assignments\models.py:45
+msgid "Grade"
+msgstr ""
+
+#: .\backend\assignments\models.py:46
+msgid "Feedback"
+msgstr ""
+
+#: .\backend\assignments\models.py:49
+msgid "Assignment Submission"
+msgstr ""
+
+#: .\backend\assignments\models.py:50
+msgid "Assignment Submissions"
+msgstr ""
+
+#: .\backend\assignments\models.py:54
+msgid "Submission by"
+msgstr ""
+
+#: .\backend\assignments\models.py:54
+msgid "for"
+msgstr ""
+
+#: .\backend\custom_sessions\models.py:8
+msgid "Tutoring"
+msgstr ""
+
+#: .\backend\custom_sessions\models.py:9 .\backend\tourism\models.py:128
+msgid "Tour Guide"
+msgstr ""
+
+#: .\backend\custom_sessions\models.py:14
+msgid "Session Type"
+msgstr ""
+
+#: .\backend\custom_sessions\models.py:22
+msgid "Tutor or Guide"
+msgstr ""
+
+#: .\backend\custom_sessions\models.py:28 .\backend\payments\models.py:48
+msgid "Learner or Visitor"
+msgstr ""
+
+#: .\backend\custom_sessions\models.py:31
+msgid "Topic or Location"
+msgstr ""
+
+#: .\backend\custom_sessions\models.py:33
+msgid "Topic for tutoring or location for guide session"
+msgstr ""
+
+#: .\backend\custom_sessions\models.py:35
+msgid "Scheduled Time"
+msgstr ""
+
+#: .\backend\custom_sessions\models.py:36
+msgid "Duration (minutes)"
+msgstr ""
+
+#: .\backend\custom_sessions\models.py:37 .\backend\dashboard\models.py:75
+#: .\backend\festivals\models.py:7 .\backend\tourism\models.py:21
+#: .\backend\tourism\models.py:36 .\backend\tourism\models.py:167
+#: .\backend\users\models.py:61 .\backend\villages\models.py:7
+msgid "Location"
+msgstr ""
+
+#: .\backend\custom_sessions\models.py:38
+msgid "Notes"
+msgstr ""
+
+#: .\backend\custom_sessions\models.py:39
+msgid "Is Confirmed"
+msgstr ""
+
+#: .\backend\custom_sessions\models.py:44
+msgid "Custom Session"
+msgstr ""
+
+#: .\backend\custom_sessions\models.py:45
+msgid "Custom Sessions"
+msgstr ""
+
+#: .\backend\custom_sessions\models.py:48
+msgid "Session with"
+msgstr ""
+
+#: .\backend\custom_sessions\models.py:48 .\backend\dashboard\models.py:104
+#: .\backend\dashboard\models.py:123
+msgid "on"
+msgstr ""
+
+#: .\backend\dashboard\models.py:18
+msgid "Login"
+msgstr ""
+
+#: .\backend\dashboard\models.py:19
+msgid "Logout"
+msgstr ""
+
+#: .\backend\dashboard\models.py:20
+msgid "Viewed Festival"
+msgstr ""
+
+#: .\backend\dashboard\models.py:21
+msgid "Viewed Tourism Spot"
+msgstr ""
+
+#: .\backend\dashboard\models.py:22
+msgid "Booked Tour"
+msgstr ""
+
+#: .\backend\dashboard\models.py:23
+msgid "Booked Tutor"
+msgstr ""
+
+#: .\backend\dashboard\models.py:24
+msgid "Booked Guide"
+msgstr ""
+
+#: .\backend\dashboard\models.py:25
+msgid "Posted Review"
+msgstr ""
+
+#: .\backend\dashboard\models.py:26
+msgid "Submitted Report"
+msgstr ""
+
+#: .\backend\dashboard\models.py:27 .\backend\reports\models.py:11
+#: .\backend\users\models.py:13
+msgid "Other"
+msgstr ""
+
+#: .\backend\dashboard\models.py:30 .\backend\payments\models.py:17
+#: .\backend\quizzes\models.py:48 .\backend\quizzes\models.py:90
+#: .\backend\reviews\models.py:17 .\backend\support\models.py:23
+#: .\backend\tourism\models.py:83 .\backend\tourism\models.py:122
+#: .\backend\tourism\models.py:150 .\backend\tourism\models.py:180
+#: .\backend\tourism\models.py:191 .\backend\tourism\models.py:284
+#: .\backend\tourism\models.py:310 .\backend\users\models.py:73
+msgid "User"
+msgstr ""
+
+#: .\backend\dashboard\models.py:31
+msgid "Action"
+msgstr ""
+
+#: .\backend\dashboard\models.py:33 .\backend\notifications\models.py:34
+#: .\backend\payments\models.py:27
+msgid "Timestamp"
+msgstr ""
+
+#: .\backend\dashboard\models.py:37
+msgid "User Activity Log"
+msgstr ""
+
+#: .\backend\dashboard\models.py:38
+msgid "User Activity Logs"
+msgstr ""
+
+#: .\backend\dashboard\models.py:48 .\backend\dashboard\models.py:73
+#: .\backend\dashboard\models.py:92 .\backend\dashboard\models.py:111
+#: .\backend\dashboard\models.py:130 .\backend\tourism\models.py:71
+#: .\backend\tourism\models.py:151 .\backend\tourism\models.py:165
+#: .\backend\tourism\models.py:265
+msgid "Date"
+msgstr ""
+
+#: .\backend\dashboard\models.py:49
+msgid "New Users"
+msgstr ""
+
+#: .\backend\dashboard\models.py:50
+msgid "Active Users"
+msgstr ""
+
+#: .\backend\dashboard\models.py:52
+msgid "Total Bookings"
+msgstr ""
+
+#: .\backend\dashboard\models.py:53
+msgid "Total Tour Bookings"
+msgstr ""
+
+#: .\backend\dashboard\models.py:54
+msgid "Total Tutor Bookings"
+msgstr ""
+
+#: .\backend\dashboard\models.py:55
+msgid "Total Guide Bookings"
+msgstr ""
+
+#: .\backend\dashboard\models.py:57
+msgid "Total Reviews"
+msgstr ""
+
+#: .\backend\dashboard\models.py:58
+msgid "Total Reports"
+msgstr ""
+
+#: .\backend\dashboard\models.py:62
+msgid "Daily Site Statistic"
+msgstr ""
+
+#: .\backend\dashboard\models.py:63
+msgid "Daily Site Statistics"
+msgstr ""
+
+#: .\backend\dashboard\models.py:66
+msgid "Stats for"
+msgstr ""
+
+#: .\backend\dashboard\models.py:74
+msgid "Tour Type"
+msgstr ""
+
+#: .\backend\dashboard\models.py:76 .\backend\dashboard\models.py:95
+#: .\backend\dashboard\models.py:114
+msgid "Bookings Count"
+msgstr ""
+
+#: .\backend\dashboard\models.py:81
+msgid "Tour Booking Statistic"
+msgstr ""
+
+#: .\backend\dashboard\models.py:82
+msgid "Tour Booking Statistics"
+msgstr ""
+
+#: .\backend\dashboard\models.py:85
+msgid "Tour bookings on"
+msgstr ""
+
+#: .\backend\dashboard\models.py:85
+msgid "Any"
+msgstr ""
+
+#: .\backend\dashboard\models.py:85 .\backend\dashboard\models.py:104
+#: .\backend\dashboard\models.py:123
+msgid "All"
+msgstr ""
+
+#: .\backend\dashboard\models.py:93 .\backend\dashboard\models.py:104
+#: .\backend\payments\models.py:40 .\backend\reviews\models.py:10
+#: .\backend\users\models.py:18
+msgid "Tutor"
+msgstr ""
+
+#: .\backend\dashboard\models.py:94 .\backend\support\models.py:25
+msgid "Subject"
+msgstr ""
+
+#: .\backend\dashboard\models.py:100
+msgid "Tutor Booking Statistic"
+msgstr ""
+
+#: .\backend\dashboard\models.py:101
+msgid "Tutor Booking Statistics"
+msgstr ""
+
+#: .\backend\dashboard\models.py:112 .\backend\dashboard\models.py:123
+#: .\backend\payments\models.py:41 .\backend\tourism\models.py:55
+msgid "Guide"
+msgstr ""
+
+#: .\backend\dashboard\models.py:113
+msgid "Region"
+msgstr ""
+
+#: .\backend\dashboard\models.py:119
+msgid "Guide Booking Statistic"
+msgstr ""
+
+#: .\backend\dashboard\models.py:120
+msgid "Guide Booking Statistics"
+msgstr ""
+
+#: .\backend\dashboard\models.py:131
+msgid "Average Rating"
+msgstr ""
+
+#: .\backend\dashboard\models.py:132
+msgid "Total Feedback"
+msgstr ""
+
+#: .\backend\dashboard\models.py:133
+msgid "Positive Feedback"
+msgstr ""
+
+#: .\backend\dashboard\models.py:134
+msgid "Negative Feedback"
+msgstr ""
+
+#: .\backend\dashboard\models.py:138
+msgid "Feedback Summary"
+msgstr ""
+
+#: .\backend\dashboard\models.py:139
+msgid "Feedback Summaries"
+msgstr ""
+
+#: .\backend\dashboard\models.py:142
+msgid "Feedback for"
+msgstr ""
+
+#: .\backend\dashboard\models.py:142
+msgid "Avg"
+msgstr ""
+
+#: .\backend\dashboard\models.py:150
+msgid "Info"
+msgstr ""
+
+#: .\backend\dashboard\models.py:151
+msgid "Warning"
+msgstr ""
+
+#: .\backend\dashboard\models.py:152
+msgid "Error"
+msgstr ""
+
+#: .\backend\dashboard\models.py:153
+msgid "Success"
+msgstr ""
+
+#: .\backend\dashboard\models.py:157 .\backend\support\models.py:26
+msgid "Message"
+msgstr ""
+
+#: .\backend\dashboard\models.py:158
+msgid "Notification Type"
+msgstr ""
+
+#: .\backend\dashboard\models.py:160
+msgid "Recipients"
+msgstr ""
+
+#: .\backend\dashboard\models.py:161
+msgid "Is Read"
+msgstr ""
+
+#: .\backend\dashboard\models.py:165
+msgid "System Notification"
+msgstr ""
+
+#: .\backend\dashboard\models.py:166
+msgid "System Notifications"
+msgstr ""
+
+#: .\backend\dashboard\models.py:176
+msgid "Stat Name"
+msgstr ""
+
+#: .\backend\dashboard\models.py:177
+msgid "Value"
+msgstr ""
+
+#: .\backend\dashboard\models.py:178
+msgid "Last Updated"
+msgstr ""
+
+#: .\backend\dashboard\models.py:179
+msgid "Label"
+msgstr ""
+
+#: .\backend\dashboard\models.py:184
+msgid "Dashboard Stat"
+msgstr ""
+
+#: .\backend\dashboard\models.py:185
+msgid "Dashboard Stats"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\_termui_impl.py:600
+#, python-brace-format
+msgid "{editor}: Editing failed"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\_termui_impl.py:604
+#, python-brace-format
+msgid "{editor}: Editing failed: {e}"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\core.py:1084
+#: .\backend\env\Lib\site-packages\click\core.py:1121
+#, python-brace-format
+msgid "{text} {deprecated_message}"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\core.py:1140
+msgid "Options"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\core.py:1202
+#, python-brace-format
+msgid "Got unexpected extra argument ({args})"
+msgid_plural "Got unexpected extra arguments ({args})"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\click\core.py:1221
+msgid "DeprecationWarning: The command {name!r} is deprecated.{extra_message}"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\core.py:1405
+msgid "Aborted!"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\core.py:1779
+msgid "Commands"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\core.py:1810
+msgid "Missing command."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\core.py:1888
+msgid "No such command {name!r}."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\core.py:2303
+msgid "Value must be an iterable."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\core.py:2324
+#, python-brace-format
+msgid "Takes {nargs} values but 1 was given."
+msgid_plural "Takes {nargs} values but {len} were given."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\click\core.py:2404
+msgid ""
+"DeprecationWarning: The {param_type} {name!r} is deprecated.{extra_message}"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\core.py:2807
+#, python-brace-format
+msgid "env var: {var}"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\core.py:2810
+#, python-brace-format
+msgid "default: {default}"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\core.py:2870
+msgid "(dynamic)"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\decorators.py:465
+#, python-format
+msgid "%(prog)s, version %(version)s"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\decorators.py:522
+msgid "Show the version and exit."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\decorators.py:548
+msgid "Show this message and exit."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\exceptions.py:50
+#: .\backend\env\Lib\site-packages\click\exceptions.py:89
+#, python-brace-format
+msgid "Error: {message}"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\exceptions.py:81
+#, python-brace-format
+msgid "Try '{command} {option}' for help."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\exceptions.py:130
+#, python-brace-format
+msgid "Invalid value: {message}"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\exceptions.py:132
+#, python-brace-format
+msgid "Invalid value for {param_hint}: {message}"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\exceptions.py:190
+msgid "Missing argument"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\exceptions.py:192
+msgid "Missing option"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\exceptions.py:194
+msgid "Missing parameter"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\exceptions.py:196
+#, python-brace-format
+msgid "Missing {param_type}"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\exceptions.py:203
+#, python-brace-format
+msgid "Missing parameter: {param_name}"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\exceptions.py:223
+#, python-brace-format
+msgid "No such option: {name}"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\exceptions.py:235
+#, python-brace-format
+msgid "Did you mean {possibility}?"
+msgid_plural "(Possible options: {possibilities})"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\click\exceptions.py:282
+msgid "unknown error"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\exceptions.py:289
+msgid "Could not open file {filename!r}: {message}"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\formatting.py:156
+msgid "Usage:"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\parser.py:200
+msgid "Argument {name!r} takes {nargs} values."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\parser.py:383
+msgid "Option {name!r} does not take a value."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\parser.py:444
+msgid "Option {name!r} requires an argument."
+msgid_plural "Option {name!r} requires {nargs} arguments."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\click\shell_completion.py:326
+msgid "Shell completion is not supported for Bash versions older than 4.4."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\shell_completion.py:333
+msgid "Couldn't detect Bash version, shell completion is not supported."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\termui.py:162
+msgid "Repeat for confirmation"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\termui.py:178
+msgid "Error: The value you entered was invalid."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\termui.py:180
+#, python-brace-format
+msgid "Error: {e.message}"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\termui.py:191
+msgid "Error: The two entered values do not match."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\termui.py:247
+msgid "Error: invalid input"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\termui.py:866
+msgid "Press any key to continue..."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\types.py:332
+#, python-brace-format
+msgid ""
+"Choose from:\n"
+"\t{choices}"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\types.py:369
+msgid "{value!r} is not {choice}."
+msgid_plural "{value!r} is not one of {choices}."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\click\types.py:460
+msgid "{value!r} does not match the format {format}."
+msgid_plural "{value!r} does not match the formats {formats}."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\click\types.py:482
+msgid "{value!r} is not a valid {number_type}."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\types.py:538
+#, python-brace-format
+msgid "{value} is not in the range {range}."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\types.py:679
+msgid "{value!r} is not a valid boolean."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\types.py:703
+msgid "{value!r} is not a valid UUID."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\types.py:893
+msgid "file"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\types.py:895
+msgid "directory"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\types.py:897
+msgid "path"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\types.py:944
+msgid "{name} {filename!r} does not exist."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\types.py:953
+msgid "{name} {filename!r} is a file."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\types.py:961
+msgid "{name} {filename!r} is a directory."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\types.py:970
+msgid "{name} {filename!r} is not readable."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\types.py:979
+msgid "{name} {filename!r} is not writable."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\types.py:988
+msgid "{name} {filename!r} is not executable."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\click\types.py:1055
+#, python-brace-format
+msgid "{len_type} values are required, but {len_value} was given."
+msgid_plural "{len_type} values are required, but {len_value} were given."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\django\contrib\messages\apps.py:16
+msgid "Messages"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\contrib\sitemaps\apps.py:8
+msgid "Site Maps"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\contrib\staticfiles\apps.py:9
+msgid "Static Files"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\contrib\syndication\apps.py:7
+msgid "Syndication"
+msgstr ""
+
+#. Translators: String used to replace omitted page numbers in elided page
+#. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
+#: .\backend\env\Lib\site-packages\django\core\paginator.py:30
+msgid "…"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\paginator.py:32
+msgid "That page number is not an integer"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\paginator.py:33
+msgid "That page number is less than 1"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\paginator.py:34
+msgid "That page contains no results"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:22
+msgid "Enter a valid value."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:70
+msgid "Enter a valid domain name."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:153
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:775
+msgid "Enter a valid URL."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:200
+msgid "Enter a valid integer."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:211
+msgid "Enter a valid email address."
+msgstr ""
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: .\backend\env\Lib\site-packages\django\core\validators.py:289
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:297
+msgid ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:309
+#: .\backend\env\Lib\site-packages\django\core\validators.py:318
+#: .\backend\env\Lib\site-packages\django\core\validators.py:332
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2220
+#, python-format
+msgid "Enter a valid %(protocol)s address."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:311
+msgid "IPv4"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:320
+#: .\backend\env\Lib\site-packages\django\utils\ipv6.py:43
+msgid "IPv6"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:334
+msgid "IPv4 or IPv6"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:375
+msgid "Enter only digits separated by commas."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:381
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:416
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:425
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:434
+#, python-format
+msgid "Ensure this value is a multiple of step size %(limit_value)s."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:441
+#, python-format
+msgid ""
+"Ensure this value is a multiple of step size %(limit_value)s, starting from "
+"%(offset)s, e.g. %(offset)s, %(valid_value1)s, %(valid_value2)s, and so on."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:473
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:491
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:514
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:366
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:405
+msgid "Enter a number."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:516
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:521
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:526
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:597
+#, python-format
+msgid ""
+"File extension “%(extension)s” is not allowed. Allowed extensions are: "
+"%(allowed_extensions)s."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\core\validators.py:659
+msgid "Null characters are not allowed."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\base.py:1600
+#: .\backend\env\Lib\site-packages\django\forms\models.py:908
+msgid "and"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\base.py:1602
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\constraints.py:22
+#, python-format
+msgid "Constraint “%(name)s” is violated."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:134
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:135
+msgid "This field cannot be null."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:136
+msgid "This field cannot be blank."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:137
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or
+#. 'month'. Eg: "Title must be unique for pub_date year"
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:141
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:180
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:1162
+#, python-format
+msgid "“%(value)s” value must be either True or False."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:1163
+#, python-format
+msgid "“%(value)s” value must be either True, False, or None."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:1165
+msgid "Boolean (Either True or False)"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:1215
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:1217
+msgid "String (unlimited)"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:1326
+msgid "Comma-separated integers"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:1427
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:1431
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:1566
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:1435
+msgid "Date (without time)"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:1562
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ] format."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:1570
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:1575
+msgid "Date (with time)"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:1702
+#, python-format
+msgid "“%(value)s” value must be a decimal number."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:1704
+msgid "Decimal number"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:1864
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in [DD] "
+"[[HH:]MM:]ss[.uuuuuu] format."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:1868
+msgid "Duration"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:1920
+msgid "Email address"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:1945
+msgid "File path"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2023
+#, python-format
+msgid "“%(value)s” value must be a float."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2025
+msgid "Floating point number"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2065
+#, python-format
+msgid "“%(value)s” value must be an integer."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2067
+msgid "Integer"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2163
+msgid "Big (8 byte) integer"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2180
+msgid "Small integer"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2188
+msgid "IPv4 address"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2219
+msgid "IP address"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2310
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2311
+#, python-format
+msgid "“%(value)s” value must be either None, True or False."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2313
+msgid "Boolean (Either True, False or None)"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2364
+msgid "Positive big integer"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2379
+msgid "Positive integer"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2394
+msgid "Positive small integer"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2410
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2446
+msgid "Text"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2526
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2530
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2534
+#: .\backend\tourism\models.py:72 .\backend\tourism\models.py:152
+#: .\backend\tourism\models.py:166 .\backend\tourism\models.py:266
+msgid "Time"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2642
+msgid "URL"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2666
+msgid "Raw binary data"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2731
+#, python-format
+msgid "“%(value)s” is not a valid UUID."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\__init__.py:2733
+msgid "Universally unique identifier"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\files.py:420
+#: .\backend\festivals\models.py:10 .\backend\tourism\models.py:22
+#: .\backend\tourism\models.py:37 .\backend\tourism\models.py:109
+#: .\backend\tourism\models.py:137 .\backend\tourism\models.py:168
+#: .\backend\tourism\models.py:221 .\backend\tourism\models.py:268
+msgid "Image"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\json.py:24
+msgid "A JSON object"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\json.py:26
+msgid "Value must be valid JSON."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\related.py:978
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r is not a valid choice."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\related.py:981
+msgid "Foreign Key (type determined by related field)"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\related.py:1275
+msgid "One-to-one relationship"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\related.py:1332
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\related.py:1334
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\db\models\fields\related.py:1382
+msgid "Many-to-many relationship"
+msgstr ""
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+#: .\backend\env\Lib\site-packages\django\forms\boundfield.py:185
+msgid ":?.!"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:95
+msgid "This field is required."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:315
+msgid "Enter a whole number."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:486
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:1267
+msgid "Enter a valid date."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:509
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:1268
+msgid "Enter a valid time."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:536
+msgid "Enter a valid date/time."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:570
+msgid "Enter a valid duration."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:571
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:640
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:641
+msgid "No file was submitted."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:642
+msgid "The submitted file is empty."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:644
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:649
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:717
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:889
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:975
+#: .\backend\env\Lib\site-packages\django\forms\models.py:1592
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:977
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:1096
+#: .\backend\env\Lib\site-packages\django\forms\models.py:1590
+msgid "Enter a list of values."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:1097
+msgid "Enter a complete value."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:1339
+msgid "Enter a valid UUID."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\fields.py:1369
+msgid "Enter a valid JSON."
+msgstr ""
+
+#. Translators: This is the default suffix added to form field labels
+#: .\backend\env\Lib\site-packages\django\forms\forms.py:97
+msgid ":"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\forms.py:239
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\formsets.py:61
+#, python-format
+msgid ""
+"ManagementForm data is missing or has been tampered with. Missing fields: "
+"%(field_names)s. You may need to file a bug report if the issue persists."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\formsets.py:65
+#, python-format
+msgid "Please submit at most %(num)d form."
+msgid_plural "Please submit at most %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\django\forms\formsets.py:70
+#, python-format
+msgid "Please submit at least %(num)d form."
+msgid_plural "Please submit at least %(num)d forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\django\forms\formsets.py:484
+#: .\backend\env\Lib\site-packages\django\forms\formsets.py:491
+msgid "Order"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\formsets.py:499
+msgid "Delete"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\models.py:901
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\models.py:906
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\models.py:913
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\models.py:922
+msgid "Please correct the duplicate values below."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\models.py:1359
+msgid "The inline value did not match the parent instance."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\models.py:1450
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\models.py:1594
+#, python-format
+msgid "“%(pk)s” is not a valid value."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\utils.py:229
+#, python-format
+msgid ""
+"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\widgets.py:527
+msgid "Clear"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\widgets.py:528
+msgid "Currently"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\widgets.py:529
+msgid "Change"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\widgets.py:866
+msgid "Unknown"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\widgets.py:867
+msgid "Yes"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\forms\widgets.py:868
+msgid "No"
+msgstr ""
+
+#. Translators: Please do not add spaces around commas.
+#: .\backend\env\Lib\site-packages\django\template\defaultfilters.py:873
+msgid "yes,no,maybe"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\template\defaultfilters.py:903
+#: .\backend\env\Lib\site-packages\django\template\defaultfilters.py:920
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\django\template\defaultfilters.py:922
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\template\defaultfilters.py:924
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\template\defaultfilters.py:926
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\template\defaultfilters.py:928
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\template\defaultfilters.py:930
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dateformat.py:74
+msgid "p.m."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dateformat.py:75
+msgid "a.m."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dateformat.py:80
+msgid "PM"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dateformat.py:81
+msgid "AM"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dateformat.py:153
+msgid "midnight"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dateformat.py:155
+msgid "noon"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:7
+msgid "Monday"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:8
+msgid "Tuesday"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:9
+msgid "Wednesday"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:10
+msgid "Thursday"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:11
+msgid "Friday"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:12
+msgid "Saturday"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:13
+msgid "Sunday"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:16
+msgid "Mon"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:17
+msgid "Tue"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:18
+msgid "Wed"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:19
+msgid "Thu"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:20
+msgid "Fri"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:21
+msgid "Sat"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:22
+msgid "Sun"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:25
+msgid "January"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:26
+msgid "February"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:27
+msgid "March"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:28
+msgid "April"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:29
+msgid "May"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:30
+msgid "June"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:31
+msgid "July"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:32
+msgid "August"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:33
+msgid "September"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:34
+msgid "October"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:35
+msgid "November"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:36
+msgid "December"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:39
+msgid "jan"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:40
+msgid "feb"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:41
+msgid "mar"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:42
+msgid "apr"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:43
+msgid "may"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:44
+msgid "jun"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:45
+msgid "jul"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:46
+msgid "aug"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:47
+msgid "sep"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:48
+msgid "oct"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:49
+msgid "nov"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:50
+msgid "dec"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:53
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:54
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:55
+msgctxt "abbrev. month"
+msgid "March"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:56
+msgctxt "abbrev. month"
+msgid "April"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:57
+msgctxt "abbrev. month"
+msgid "May"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:58
+msgctxt "abbrev. month"
+msgid "June"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:59
+msgctxt "abbrev. month"
+msgid "July"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:60
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:61
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:62
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:63
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:64
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:67
+msgctxt "alt. month"
+msgid "January"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:68
+msgctxt "alt. month"
+msgid "February"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:69
+msgctxt "alt. month"
+msgid "March"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:70
+msgctxt "alt. month"
+msgid "April"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:71
+msgctxt "alt. month"
+msgid "May"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:72
+msgctxt "alt. month"
+msgid "June"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:73
+msgctxt "alt. month"
+msgid "July"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:74
+msgctxt "alt. month"
+msgid "August"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:75
+msgctxt "alt. month"
+msgid "September"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:76
+msgctxt "alt. month"
+msgid "October"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:77
+msgctxt "alt. month"
+msgid "November"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\dates.py:78
+msgctxt "alt. month"
+msgid "December"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\ipv6.py:20
+msgid "This is not a valid IPv6 address."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\text.py:67
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\text.py:278
+msgid "or"
+msgstr ""
+
+#. Translators: This string is used as a separator between list elements
+#: .\backend\env\Lib\site-packages\django\utils\text.py:297
+#: .\backend\env\Lib\site-packages\django\utils\timesince.py:135
+msgid ", "
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\utils\timesince.py:8
+#, python-format
+msgid "%(num)d year"
+msgid_plural "%(num)d years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\django\utils\timesince.py:9
+#, python-format
+msgid "%(num)d month"
+msgid_plural "%(num)d months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\django\utils\timesince.py:10
+#, python-format
+msgid "%(num)d week"
+msgid_plural "%(num)d weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\django\utils\timesince.py:11
+#, python-format
+msgid "%(num)d day"
+msgid_plural "%(num)d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\django\utils\timesince.py:12
+#, python-format
+msgid "%(num)d hour"
+msgid_plural "%(num)d hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\django\utils\timesince.py:13
+#, python-format
+msgid "%(num)d minute"
+msgid_plural "%(num)d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\backend\env\Lib\site-packages\django\views\csrf.py:29
+msgid "Forbidden"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\csrf.py:30
+msgid "CSRF verification failed. Request aborted."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\csrf.py:34
+msgid ""
+"You are seeing this message because this HTTPS site requires a “Referer "
+"header” to be sent by your web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\csrf.py:40
+msgid ""
+"If you have configured your browser to disable “Referer” headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for “same-"
+"origin” requests."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\csrf.py:45
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the “Referrer-Policy: no-referrer” header, please remove them. The "
+"CSRF protection requires the “Referer” header to do strict referer checking. "
+"If you’re concerned about privacy, use alternatives like <a "
+"rel=\"noreferrer\" …> for links to third-party sites."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\csrf.py:54
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\csrf.py:60
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for “same-origin” requests."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\csrf.py:66
+msgid "More information is available with DEBUG=True."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\generic\dates.py:44
+msgid "No year specified"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\generic\dates.py:64
+#: .\backend\env\Lib\site-packages\django\views\generic\dates.py:115
+#: .\backend\env\Lib\site-packages\django\views\generic\dates.py:214
+msgid "Date out of range"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\generic\dates.py:94
+msgid "No month specified"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\generic\dates.py:147
+msgid "No day specified"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\generic\dates.py:194
+msgid "No week specified"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\generic\dates.py:353
+#: .\backend\env\Lib\site-packages\django\views\generic\dates.py:384
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\generic\dates.py:680
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because "
+"%(class_name)s.allow_future is False."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\generic\dates.py:720
+#, python-format
+msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\generic\detail.py:56
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\generic\list.py:70
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\generic\list.py:77
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\generic\list.py:173
+#, python-format
+msgid "Empty list and “%(class_name)s.allow_empty” is False."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\static.py:49
+msgid "Directory indexes are not allowed here."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\static.py:51
+#, python-format
+msgid "“%(path)s” does not exist"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\static.py:68
+#: .\backend\env\Lib\site-packages\django\views\templates\directory_index.html:8
+#: .\backend\env\Lib\site-packages\django\views\templates\directory_index.html:11
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\templates\default_urlconf.html:7
+#: .\backend\env\Lib\site-packages\django\views\templates\default_urlconf.html:204
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\templates\default_urlconf.html:206
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\templates\default_urlconf.html:208
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" "
+"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
+"configured any URLs."
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\templates\default_urlconf.html:217
+msgid "Django Documentation"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\templates\default_urlconf.html:218
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\templates\default_urlconf.html:226
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\templates\default_urlconf.html:227
+msgid "Get started with Django"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\templates\default_urlconf.html:235
+msgid "Django Community"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\django\views\templates\default_urlconf.html:236
+msgid "Connect, get help, or contribute"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\kombu\transport\qpid.py:1311
+#, python-format
+msgid "Attempting to connect to qpid with SASL mechanism %s"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\kombu\transport\qpid.py:1316
+#, python-format
+msgid "Connected to qpid with SASL mechanism %s"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\kombu\transport\qpid.py:1334
+#, python-format
+msgid "Unable to connect to qpid with SASL mechanism %s"
+msgstr ""
+
+#: .\backend\env\Lib\site-packages\timezone_field\rest_framework.py:10
+msgid "A valid timezone is required."
+msgstr ""
+
+#: .\backend\festivals\models.py:5 .\backend\tourism\models.py:8
+#: .\backend\tourism\models.py:19 .\backend\tourism\models.py:34
+#: .\backend\tourism\models.py:97 .\backend\tourism\models.py:135
+#: .\backend\tutorials\models.py:58 .\backend\villages\models.py:6
+#: .\backend\villages\models.py:31 .\backend\villages\models.py:52
+msgid "Name"
+msgstr ""
+
+#: .\backend\festivals\models.py:8
+msgid "Start Date"
+msgstr ""
+
+#: .\backend\festivals\models.py:9
+msgid "End Date"
+msgstr ""
+
+#: .\backend\festivals\models.py:11
+msgid "Is Featured"
+msgstr ""
+
+#: .\backend\festivals\models.py:14 .\backend\reviews\models.py:12
+msgid "Festival"
+msgstr ""
+
+#: .\backend\festivals\models.py:15
+msgid "Festivals"
+msgstr ""
+
+#: .\backend\notifications\models.py:10 .\backend\payments\models.py:67
+msgid "Booking"
+msgstr ""
+
+#: .\backend\notifications\models.py:11 .\backend\payments\models.py:32
+msgid "Payment"
+msgstr ""
+
+#: .\backend\notifications\models.py:12
+msgid "Support"
+msgstr ""
+
+#: .\backend\notifications\models.py:13 .\backend\reviews\models.py:34
+msgid "Review"
+msgstr ""
+
+#: .\backend\notifications\models.py:14
+msgid "Generic"
+msgstr ""
+
+#: .\backend\notifications\models.py:21
+msgid "Recipient"
+msgstr ""
+
+#: .\backend\notifications\models.py:29
+msgid "Actor"
+msgstr ""
+
+#: .\backend\notifications\models.py:31
+msgid "Verb"
+msgstr ""
+
+#: .\backend\notifications\models.py:32
+msgid "Target"
+msgstr ""
+
+#: .\backend\notifications\models.py:33
+msgid "Action Object"
+msgstr ""
+
+#: .\backend\notifications\models.py:35
+msgid "Read"
+msgstr ""
+
+#: .\backend\notifications\models.py:37
+msgid "Type"
+msgstr ""
+
+#: .\backend\notifications\models.py:45
+msgid "Notification"
+msgstr ""
+
+#: .\backend\notifications\models.py:46
+msgid "Notifications"
+msgstr ""
+
+#: .\backend\payments\models.py:7
+msgid "Orange Money"
+msgstr ""
+
+#: .\backend\payments\models.py:8
+msgid "MTN Mobile Money"
+msgstr ""
+
+#: .\backend\payments\models.py:9
+msgid "Card"
+msgstr ""
+
+#: .\backend\payments\models.py:10
+msgid "PayPal"
+msgstr ""
+
+#: .\backend\payments\models.py:19
+msgid "Amount"
+msgstr ""
+
+#: .\backend\payments\models.py:21
+msgid "Payment Method"
+msgstr ""
+
+#: .\backend\payments\models.py:25
+msgid "Transaction ID"
+msgstr ""
+
+#: .\backend\payments\models.py:26 .\backend\reports\models.py:36
+#: .\backend\support\models.py:34
+msgid "Status"
+msgstr ""
+
+#: .\backend\payments\models.py:33
+msgid "Payments"
+msgstr ""
+
+#: .\backend\payments\models.py:54
+msgid "Booked User"
+msgstr ""
+
+#: .\backend\payments\models.py:57
+msgid "Service Type"
+msgstr ""
+
+#: .\backend\payments\models.py:61
+msgid "Amount Paid"
+msgstr ""
+
+#: .\backend\payments\models.py:62
+msgid "Is Paid to Admin"
+msgstr ""
+
+#: .\backend\payments\models.py:63
+msgid "Is Paid to Service Provider"
+msgstr ""
+
+#: .\backend\payments\models.py:68
+msgid "Bookings"
+msgstr ""
+
+#: .\backend\quizzes\models.py:13 .\backend\tourism\models.py:73
+#: .\backend\tourism\models.py:169 .\backend\tourism\models.py:208
+#: .\backend\tourism\models.py:223 .\backend\tourism\models.py:237
+#: .\backend\tourism\models.py:251 .\backend\tourism\models.py:267
+msgid "Created By"
+msgstr ""
+
+#: .\backend\quizzes\models.py:18 .\backend\quizzes\models.py:31
+#: .\backend\quizzes\models.py:54 .\backend\quizzes\models.py:95
+msgid "Quiz"
+msgstr ""
+
+#: .\backend\quizzes\models.py:19
+msgid "Quizzes"
+msgstr ""
+
+#: .\backend\quizzes\models.py:33
+msgid "Question Text"
+msgstr ""
+
+#: .\backend\quizzes\models.py:36 .\backend\quizzes\models.py:73
+msgid "Question"
+msgstr ""
+
+#: .\backend\quizzes\models.py:37
+msgid "Questions"
+msgstr ""
+
+#: .\backend\quizzes\models.py:40
+msgid "Question for"
+msgstr ""
+
+#: .\backend\quizzes\models.py:56 .\backend\quizzes\models.py:98
+msgid "Score"
+msgstr ""
+
+#: .\backend\quizzes\models.py:60
+msgid "Quiz Submission"
+msgstr ""
+
+#: .\backend\quizzes\models.py:61
+msgid "Quiz Submissions"
+msgstr ""
+
+#: .\backend\quizzes\models.py:75
+msgid "Choice Text"
+msgstr ""
+
+#: .\backend\quizzes\models.py:76
+msgid "Is Correct"
+msgstr ""
+
+#: .\backend\quizzes\models.py:79
+msgid "Choice"
+msgstr ""
+
+#: .\backend\quizzes\models.py:80
+msgid "Choices"
+msgstr ""
+
+#: .\backend\quizzes\models.py:97
+msgid "Progress"
+msgstr ""
+
+#: .\backend\quizzes\models.py:99
+msgid "Completed"
+msgstr ""
+
+#: .\backend\quizzes\models.py:102
+msgid "User Quiz Progress"
+msgstr ""
+
+#: .\backend\quizzes\models.py:103
+msgid "User Quiz Progresses"
+msgstr ""
+
+#: .\backend\reports\models.py:7
+msgid "Abuse"
+msgstr ""
+
+#: .\backend\reports\models.py:8
+msgid "Harassment"
+msgstr ""
+
+#: .\backend\reports\models.py:9
+msgid "Spam"
+msgstr ""
+
+#: .\backend\reports\models.py:10
+msgid "Fraud"
+msgstr ""
+
+#: .\backend\reports\models.py:15
+msgid "Pending"
+msgstr ""
+
+#: .\backend\reports\models.py:16
+msgid "Reviewed"
+msgstr ""
+
+#: .\backend\reports\models.py:17
+msgid "Resolved"
+msgstr ""
+
+#: .\backend\reports\models.py:18
+msgid "Dismissed"
+msgstr ""
+
+#: .\backend\reports\models.py:26
+msgid "Reporter"
+msgstr ""
+
+#: .\backend\reports\models.py:32
+msgid "Reported User"
+msgstr ""
+
+#: .\backend\reports\models.py:34
+msgid "Reason"
+msgstr ""
+
+#: .\backend\reports\models.py:38
+msgid "Reviewed At"
+msgstr ""
+
+#: .\backend\reports\models.py:41
+msgid "Report"
+msgstr ""
+
+#: .\backend\reports\models.py:42
+msgid "Reports"
+msgstr ""
+
+#: .\backend\reports\models.py:46
+#, python-format
+msgid "Report from %(reporter)s against %(reported_user)s"
+msgstr ""
+
+#: .\backend\reviews\models.py:9 .\backend\users\models.py:19
+msgid "Touristic Guide"
+msgstr ""
+
+#: .\backend\reviews\models.py:11
+msgid "Tourist Site"
+msgstr ""
+
+#: .\backend\reviews\models.py:13 .\backend\villages\models.py:17
+#: .\backend\villages\models.py:32 .\backend\villages\models.py:53
+msgid "Village"
+msgstr ""
+
+#: .\backend\reviews\models.py:18
+msgid "Target Type"
+msgstr ""
+
+#: .\backend\reviews\models.py:19
+msgid "Target ID"
+msgstr ""
+
+#: .\backend\reviews\models.py:20 .\backend\tourism\models.py:85
+#: .\backend\tourism\models.py:194 .\backend\tourism\models.py:312
+msgid "Rating"
+msgstr ""
+
+#: .\backend\reviews\models.py:21 .\backend\tourism\models.py:86
+#: .\backend\tourism\models.py:313
+msgid "Comment"
+msgstr ""
+
+#: .\backend\reviews\models.py:28
+msgid "Parent Review"
+msgstr ""
+
+#: .\backend\reviews\models.py:35
+msgid "Reviews"
+msgstr ""
+
+#: .\backend\reviews\models.py:38
+#, python-format
+msgid "%(user)s rated %(target_type)s %(target_id)s (%(rating)s/5)"
+msgstr ""
+
+#: .\backend\support\models.py:8
+msgid "Technical Issue"
+msgstr ""
+
+#: .\backend\support\models.py:9
+msgid "Account Issue"
+msgstr ""
+
+#: .\backend\support\models.py:10
+msgid "General Inquiry"
+msgstr ""
+
+#: .\backend\support\models.py:14
+msgid "Open"
+msgstr ""
+
+#: .\backend\support\models.py:15
+msgid "In Progress"
+msgstr ""
+
+#: .\backend\support\models.py:16
+msgid "Closed"
+msgstr ""
+
+#: .\backend\support\models.py:28 .\backend\tourism\models.py:12
+#: .\backend\tourism\models.py:23 .\backend\tourism\models.py:39
+#: .\backend\tutorials\models.py:19 .\backend\villages\models.py:56
+msgid "Category"
+msgstr ""
+
+#: .\backend\support\models.py:40 .\backend\tutorials\models.py:26
+#: .\backend\tutorials\models.py:61
+msgid "Updated At"
+msgstr ""
+
+#: .\backend\support\models.py:43
+msgid "Support Ticket"
+msgstr ""
+
+#: .\backend\support\models.py:44
+msgid "Support Tickets"
+msgstr ""
+
+#: .\backend\tourism\models.py:13
+msgid "Categories"
+msgstr ""
+
+#: .\backend\tourism\models.py:24 .\backend\tourism\models.py:38
+msgid "Added By"
+msgstr ""
+
+#: .\backend\tourism\models.py:27 .\backend\tourism\models.py:70
+#: .\backend\tourism\models.py:84 .\backend\tourism\models.py:108
+#: .\backend\tourism\models.py:192 .\backend\tourism\models.py:234
+#: .\backend\tourism\models.py:248 .\backend\tourism\models.py:264
+#: .\backend\villages\models.py:38
+msgid "Attraction"
+msgstr ""
+
+#: .\backend\tourism\models.py:28 .\backend\tourism\models.py:57
+#: .\backend\tourism\models.py:207 .\backend\tourism\models.py:222
+#: .\backend\villages\models.py:39
+msgid "Attractions"
+msgstr ""
+
+#: .\backend\tourism\models.py:42 .\backend\villages\models.py:59
+msgid "Local Site"
+msgstr ""
+
+#: .\backend\tourism\models.py:43 .\backend\villages\models.py:60
+msgid "Local Sites"
+msgstr ""
+
+#: .\backend\tourism\models.py:51 .\backend\tourism\models.py:270
+msgid "Price"
+msgstr ""
+
+#: .\backend\tourism\models.py:52
+msgid "Duration (days)"
+msgstr ""
+
+#: .\backend\tourism\models.py:61
+msgid "Tour Plan"
+msgstr ""
+
+#: .\backend\tourism\models.py:62
+msgid "Tour Plans"
+msgstr ""
+
+#: .\backend\tourism\models.py:76
+msgid "Tour Activity"
+msgstr ""
+
+#: .\backend\tourism\models.py:77
+msgid "Tour Activities"
+msgstr ""
+
+#: .\backend\tourism\models.py:90
+msgid "Tour Review"
+msgstr ""
+
+#: .\backend\tourism\models.py:91
+msgid "Tour Reviews"
+msgstr ""
+
+#: .\backend\tourism\models.py:101
+msgid "Tour Category"
+msgstr ""
+
+#: .\backend\tourism\models.py:102
+msgid "Tour Categories"
+msgstr ""
+
+#: .\backend\tourism\models.py:110
+msgid "Caption"
+msgstr ""
+
+#: .\backend\tourism\models.py:111
+msgid "Uploaded By"
+msgstr ""
+
+#: .\backend\tourism\models.py:115
+msgid "Tour Photo"
+msgstr ""
+
+#: .\backend\tourism\models.py:116
+msgid "Tour Photos"
+msgstr ""
+
+#: .\backend\tourism\models.py:123
+msgid "Bio"
+msgstr ""
+
+#: .\backend\tourism\models.py:124
+msgid "Expertise"
+msgstr ""
+
+#: .\backend\tourism\models.py:125 .\backend\tourism\models.py:139
+msgid "Available"
+msgstr ""
+
+#: .\backend\tourism\models.py:129
+msgid "Tour Guides"
+msgstr ""
+
+#: .\backend\tourism\models.py:138
+msgid "Capacity"
+msgstr ""
+
+#: .\backend\tourism\models.py:142
+msgid "Tour Transport"
+msgstr ""
+
+#: .\backend\tourism\models.py:143
+msgid "Tour Transports"
+msgstr ""
+
+#: .\backend\tourism\models.py:149
+msgid "Transport"
+msgstr ""
+
+#: .\backend\tourism\models.py:156
+msgid "Tour Transport Booking"
+msgstr ""
+
+#: .\backend\tourism\models.py:157
+msgid "Tour Transport Bookings"
+msgstr ""
+
+#: .\backend\tourism\models.py:172
+msgid "Tour Event"
+msgstr ""
+
+#: .\backend\tourism\models.py:173
+msgid "Tour Events"
+msgstr ""
+
+#: .\backend\tourism\models.py:179
+msgid "Event"
+msgstr ""
+
+#: .\backend\tourism\models.py:181
+msgid "Registered At"
+msgstr ""
+
+#: .\backend\tourism\models.py:184
+msgid "Tour Event Registration"
+msgstr ""
+
+#: .\backend\tourism\models.py:185
+msgid "Tour Event Registrations"
+msgstr ""
+
+#: .\backend\tourism\models.py:193
+msgid "Feedback Text"
+msgstr ""
+
+#: .\backend\tourism\models.py:198
+msgid "Tour Feedback"
+msgstr ""
+
+#: .\backend\tourism\models.py:199
+msgid "Tour Feedbacks"
+msgstr ""
+
+#: .\backend\tourism\models.py:212
+msgid "Tour Itinerary"
+msgstr ""
+
+#: .\backend\tourism\models.py:213
+msgid "Tour Itineraries"
+msgstr ""
+
+#: .\backend\tourism\models.py:227
+msgid "Tour Map"
+msgstr ""
+
+#: .\backend\tourism\models.py:228
+msgid "Tour Maps"
+msgstr ""
+
+#: .\backend\tourism\models.py:235
+msgid "Safety Tips"
+msgstr ""
+
+#: .\backend\tourism\models.py:236
+msgid "Emergency Contacts"
+msgstr ""
+
+#: .\backend\tourism\models.py:241
+msgid "Tour Safety Info"
+msgstr ""
+
+#: .\backend\tourism\models.py:242
+msgid "Tour Safety Infos"
+msgstr ""
+
+#: .\backend\tourism\models.py:249
+msgid "Average Temperature"
+msgstr ""
+
+#: .\backend\tourism\models.py:250
+msgid "Best Visit Season"
+msgstr ""
+
+#: .\backend\tourism\models.py:255
+msgid "Tour Weather Info"
+msgstr ""
+
+#: .\backend\tourism\models.py:256
+msgid "Tour Weather Infos"
+msgstr ""
+
+#: .\backend\tourism\models.py:269
+msgid "Video"
+msgstr ""
+
+#: .\backend\tourism\models.py:271
+msgid "Available Slots"
+msgstr ""
+
+#: .\backend\tourism\models.py:272
+msgid "Booked Slots"
+msgstr ""
+
+#: .\backend\tourism\models.py:273
+msgid "Is Active"
+msgstr ""
+
+#: .\backend\tourism\models.py:276
+msgid "Tour Cultural Experience"
+msgstr ""
+
+#: .\backend\tourism\models.py:277
+msgid "Tour Cultural Experiences"
+msgstr ""
+
+#: .\backend\tourism\models.py:283 .\backend\tourism\models.py:311
+msgid "Experience"
+msgstr ""
+
+#: .\backend\tourism\models.py:285
+msgid "Booked At"
+msgstr ""
+
+#: .\backend\tourism\models.py:286
+msgid "Number of Slots"
+msgstr ""
+
+#: .\backend\tourism\models.py:289
+msgid "Tour Cultural Experience Booking"
+msgstr ""
+
+#: .\backend\tourism\models.py:290
+msgid "Tour Cultural Experience Bookings"
+msgstr ""
+
+#: .\backend\tourism\models.py:297
+msgid "Not enough available slots for this booking."
+msgstr ""
+
+#: .\backend\tourism\models.py:317
+msgid "Tour Cultural Experience Review"
+msgstr ""
+
+#: .\backend\tourism\models.py:318
+msgid "Tour Cultural Experience Reviews"
+msgstr ""
+
+#: .\backend\tourism\models.py:325
+msgid "Rating must be between 1 and 5."
+msgstr ""
+
+#: .\backend\tutorials\models.py:11
+msgid "Author"
+msgstr ""
+
+#: .\backend\tutorials\models.py:23
+msgid "Video URL"
+msgstr ""
+
+#: .\backend\tutorials\models.py:24 .\backend\villages\models.py:12
+msgid "Language"
+msgstr ""
+
+#: .\backend\tutorials\models.py:30 .\backend\tutorials\models.py:42
+msgid "Tutorial"
+msgstr ""
+
+#: .\backend\tutorials\models.py:31
+msgid "Tutorials"
+msgstr ""
+
+#: .\backend\tutorials\models.py:45
+msgid "Content"
+msgstr ""
+
+#: .\backend\tutorials\models.py:46
+msgid "Step Number"
+msgstr ""
+
+#: .\backend\tutorials\models.py:50
+msgid "Tutorial Step"
+msgstr ""
+
+#: .\backend\tutorials\models.py:51
+msgid "Tutorial Steps"
+msgstr ""
+
+#: .\backend\tutorials\models.py:54
+msgid "Step"
+msgstr ""
+
+#: .\backend\tutorials\models.py:65
+msgid "Tutorial Category"
+msgstr ""
+
+#: .\backend\tutorials\models.py:66
+msgid "Tutorial Categories"
+msgstr ""
+
+#: .\backend\users\models.py:11
+msgid "Male"
+msgstr ""
+
+#: .\backend\users\models.py:12
+msgid "Female"
+msgstr ""
+
+#: .\backend\users\models.py:24
+msgid "Only Gmail addresses are allowed."
+msgstr ""
+
+#: .\backend\users\models.py:30
+msgid "Users must have an email address"
+msgstr ""
+
+#: .\backend\users\models.py:44
+msgid "Username"
+msgstr ""
+
+#: .\backend\users\models.py:45
+msgid "Full Name"
+msgstr ""
+
+#: .\backend\users\models.py:46
+msgid "Email Address"
+msgstr ""
+
+#: .\backend\users\models.py:49
+msgid ""
+"Phone number must be entered in the format: '+237612345678'. Up to 15 digits "
+"allowed."
+msgstr ""
+
+#: .\backend\users\models.py:51
+msgid "Phone Number"
+msgstr ""
+
+#: .\backend\users\models.py:54
+msgid "Profile Picture"
+msgstr ""
+
+#: .\backend\users\models.py:58
+msgid "ID Card"
+msgstr ""
+
+#: .\backend\users\models.py:59
+msgid "Gender"
+msgstr ""
+
+#: .\backend\users\models.py:60
+msgid "Role"
+msgstr ""
+
+#: .\backend\users\models.py:63
+msgid "Active"
+msgstr ""
+
+#: .\backend\users\models.py:64
+msgid "Staff Status"
+msgstr ""
+
+#: .\backend\users\models.py:65
+msgid "Date Joined"
+msgstr ""
+
+#: .\backend\users\models.py:74
+msgid "Users"
+msgstr ""
+
+#: .\backend\villages\models.py:8
+msgid "Tourism Status"
+msgstr ""
+
+#: .\backend\villages\models.py:10
+msgid "Photo"
+msgstr ""
+
+#: .\backend\villages\models.py:11
+msgid "Population"
+msgstr ""
+
+#: .\backend\villages\models.py:13
+msgid "History"
+msgstr ""
+
+#: .\backend\villages\models.py:14
+msgid "Featured"
+msgstr ""
+
+#: .\backend\villages\models.py:18
+msgid "Villages"
+msgstr ""
+
+#: .\backend\villages\models.py:26
+msgid "Natural"
+msgstr ""
+
+#: .\backend\villages\models.py:27
+msgid "Cultural"
+msgstr ""
+
+#: .\backend\villages\models.py:28
+msgid "Historical"
+msgstr ""
+
+#: .\backend\villages\models.py:33
+msgid "Attraction Type"
+msgstr ""
+
+#: .\backend\villages\models.py:35
+msgid "Tourist Rating"
+msgstr ""
+
+#: .\backend\villages\models.py:47
+msgid "Museum"
+msgstr ""
+
+#: .\backend\villages\models.py:48
+msgid "Monument"
+msgstr ""
+
+#: .\backend\villages\models.py:49
+msgid "Park"
+msgstr ""
+
+#: .\backend\villages\models.py:54
+msgid "Site Type"
+msgstr ""
