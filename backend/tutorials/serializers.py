@@ -1,19 +1,24 @@
-# tutorials/serializers.py
-
 from rest_framework import serializers
-from .models import Tutorial, TutorialStep
+from .models import Tutorial, TutorialCategory, TutorialComment
 
-class TutorialStepSerializer(serializers.ModelSerializer):
+class TutorialCategorySerializer(serializers.ModelSerializer):
     class Meta:
-        model = TutorialStep
-        fields = ['id', 'title', 'content', 'step_number']
+        model = TutorialCategory
+        fields = "__all__"
 
+class TutorialCommentSerializer(serializers.ModelSerializer):
+    user_username = serializers.CharField(source="user.username", read_only=True)
+    
+    class Meta:
+        model = TutorialComment
+        fields = ["id", "comment", "created_at", "user", "user_username", "tutorial"]
+        read_only_fields = ["id", "created_at", "user", "user_username", "tutorial"]
 
 class TutorialSerializer(serializers.ModelSerializer):
-    steps = TutorialStepSerializer(many=True, read_only=True)
-    author_name = serializers.CharField(source='author.full_name', read_only=True)
-
+    created_by_username = serializers.CharField(source="created_by.username", read_only=True)
+    comments = TutorialCommentSerializer(many=True, read_only=True)
+    category_name = serializers.CharField(source="category.name", read_only=True)
+    
     class Meta:
         model = Tutorial
-        fields = ['id', 'author', 'author_name', 'title', 'description', 'video_url', 'created_at', 'updated_at', 'steps']
-        read_only_fields = ['author', 'created_at', 'updated_at']
+        fields = "__all__"

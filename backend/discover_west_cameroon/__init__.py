@@ -1,3 +1,4 @@
-from .celery import app as celery_app
+default_app_config = 'discover_west_cameroon.apps.DiscoverWestCameroonConfig'
 
-__all__ = ('celery_app',)
+# Add test runner configuration
+TEST_RUNNER = 'discover_west_cameroon.test_runner.CustomTestRunner'

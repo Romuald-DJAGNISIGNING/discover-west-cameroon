@@ -1,13 +1,18 @@
 from django.contrib import admin
-from .models import SupportTicket
+from .models import SupportTicket, SupportMessage
+
+class SupportMessageInline(admin.TabularInline):
+    model = SupportMessage
+    extra = 1
 
 @admin.register(SupportTicket)
 class SupportTicketAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user_email', 'subject', 'category', 'status', 'created_at', 'updated_at')
-    list_filter = ('category', 'status', 'created_at', 'updated_at')
-    search_fields = ('user__email', 'subject', 'message')
-    readonly_fields = ('created_at', 'updated_at')
+    list_display = ("subject", "priority", "status", "village", "attraction", "festival", "created_by", "assigned_to", "created_at")
+    list_filter = ("priority", "status", "village", "attraction", "festival")
+    search_fields = ("subject", "message", "created_by__username", "assigned_to__username")
+    inlines = [SupportMessageInline]
 
-    def user_email(self, obj):
-        return obj.user.email
-    user_email.short_description = 'User Email'
+@admin.register(SupportMessage)
+class SupportMessageAdmin(admin.ModelAdmin):
+    list_display = ("ticket", "user", "created_at")
+    search_fields = ("ticket__subject", "user__username", "message")

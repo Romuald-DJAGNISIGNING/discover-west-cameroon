@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Support Tickets</h2>
+<a href="{% url 'support_ticket_create' %}">Submit a support ticket</a>
+<ul>
+  {% for ticket in tickets %}
+    <li>
+      <a href="{% url 'support_ticket_detail' ticket.pk %}">{{ ticket.subject }}</a>
+      ({{ ticket.get_priority_display }}, {{ ticket.status }}) - {{ ticket.created_by }}
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -1,106 +1,60 @@
 from django.db import models
 from django.conf import settings
-from django.utils.translation import gettext_lazy as _
-
+from villages.models import Village
+from tourism.models import TouristicAttraction
 
 class Quiz(models.Model):
-    title = models.CharField(_("Title"), max_length=255)
-    description = models.TextField(_("Description"), blank=True, null=True)
-    created_by = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-        related_name='quizzes',
-        verbose_name=_("Created By")
-    )
-    created_at = models.DateTimeField(_("Created At"), auto_now_add=True)
-
-    class Meta:
-        verbose_name = _("Quiz")
-        verbose_name_plural = _("Quizzes")
-        ordering = ['-created_at']
+    title = models.CharField(max_length=255)
+    description = models.TextField(blank=True)
+    village = models.ForeignKey(Village, related_name="quizzes", null=True, blank=True, on_delete=models.SET_NULL)
+    attraction = models.ForeignKey(TouristicAttraction, related_name="quizzes", null=True, blank=True, on_delete=models.SET_NULL)
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
 
+    class Meta:
+        ordering = ['-created_at']
 
 class Question(models.Model):
-    quiz = models.ForeignKey(
-        Quiz,
-        on_delete=models.CASCADE,
-        related_name='questions',
-        verbose_name=_("Quiz")
+    QUESTION_TYPES = (
+        ('mcq', 'Multiple Choice (Single)'),
+        ('multi', 'Multiple Choice (Multiple)'),
+        ('open', 'Open Ended'),
     )
-    text = models.TextField(_("Question Text"))
-
-    class Meta:
-        verbose_name = _("Question")
-        verbose_name_plural = _("Questions")
+    quiz = models.ForeignKey(Quiz, related_name='questions', on_delete=models.CASCADE)
+    text = models.TextField()
+    type = models.CharField(max_length=8, choices=QUESTION_TYPES)
+    order = models.PositiveIntegerField(default=1)
 
     def __str__(self):
-        return f"{_('Question for')} {self.quiz.title}"
-
-
-class QuizSubmission(models.Model):
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-        related_name='quiz_submissions',
-        verbose_name=_("User")
-    )
-    quiz = models.ForeignKey(
-        Quiz,
-        on_delete=models.CASCADE,
-        related_name='submissions',
-        verbose_name=_("Quiz")
-    )
-    score = models.FloatField(_("Score"))
-    submitted_at = models.DateTimeField(_("Submitted At"), auto_now_add=True)
-
-    class Meta:
-        verbose_name = _("Quiz Submission")
-        verbose_name_plural = _("Quiz Submissions")
-        ordering = ['-submitted_at']
-
-    def __str__(self):
-        return f"{self.user.email} - {self.quiz.title} - {self.score}"
-
+        return f"{self.quiz.title}: {self.text[:40]}"
 
 class Choice(models.Model):
-    question = models.ForeignKey(
-        Question,
-        on_delete=models.CASCADE,
-        related_name='answers',
-        verbose_name=_("Question")
-    )
-    text = models.CharField(_("Choice Text"), max_length=255)
-    is_correct = models.BooleanField(_("Is Correct"), default=False)
-
-    class Meta:
-        verbose_name = _("Choice")
-        verbose_name_plural = _("Choices")
+    question = models.ForeignKey(Question, related_name='choices', on_delete=models.CASCADE)
+    text = models.CharField(max_length=255)
+    is_correct = models.BooleanField(default=False)
 
     def __str__(self):
         return self.text
 
-
-class UserQuizProgress(models.Model):
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-        verbose_name=_("User")
-    )
-    quiz = models.ForeignKey(
-        Quiz,
-        on_delete=models.CASCADE,
-        verbose_name=_("Quiz")
-    )
-    progress = models.IntegerField(_("Progress"), default=0)
-    score = models.FloatField(_("Score"), default=0.0)
-    completed = models.BooleanField(_("Completed"), default=False)
-
-    class Meta:
-        verbose_name = _("User Quiz Progress")
-        verbose_name_plural = _("User Quiz Progresses")
+class QuizAttempt(models.Model):
+    quiz = models.ForeignKey(Quiz, related_name='attempts', on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='quiz_attempts', on_delete=models.CASCADE)
+    started_at = models.DateTimeField(auto_now_add=True)
+    completed_at = models.DateTimeField(null=True, blank=True)
+    score = models.FloatField(default=0)
+    feedback = models.TextField(blank=True)  # Tutor/guide can add feedback
 
     def __str__(self):
-        return f"{self.user.email} - {self.quiz.title} - {self.progress}%"
+        return f"{self.user.username} - {self.quiz.title}"
+
+class QuestionResponse(models.Model):
+    attempt = models.ForeignKey(QuizAttempt, related_name='responses', on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    selected_choices = models.ManyToManyField(Choice, blank=True)
+    text_answer = models.TextField(blank=True)
+
+    def __str__(self):
+        return f"Attempt {self.attempt.id} - Q: {self.question.id}"

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Resolve Ticket: {{ ticket.subject }}</h2>
+  <form method="post">
+    {% csrf_token %}
+    <label for="resolution">Resolution:</label>
+    <textarea name="resolution" id="resolution" rows="4">{{ ticket.resolution }}</textarea>
+    <button type="submit">Resolve</button>
+  </form>
+{% endblock %}

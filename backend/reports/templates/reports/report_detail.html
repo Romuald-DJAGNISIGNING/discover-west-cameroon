@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Report: {{ report.title }}</h2>
+<p><strong>Type:</strong> {{ report.get_type_display }}</p>
+<p><strong>Status:</strong> {{ report.status }}</p>
+<p><strong>Description:</strong> {{ report.description }}</p>
+{% if report.village %}
+<p><strong>Village:</strong> {{ report.village }}</p>
+{% endif %}
+{% if report.attraction %}
+<p><strong>Attraction:</strong> {{ report.attraction }}</p>
+{% endif %}
+{% if report.festival %}
+<p><strong>Festival:</strong> {{ report.festival }}</p>
+{% endif %}
+<p><strong>Reported by:</strong> {{ report.reported_by }}</p>
+<p><strong>Created:</strong> {{ report.created_at }}</p>
+{% if report.reviewed_by %}
+<p><strong>Reviewed by:</strong> {{ report.reviewed_by }}<br>
+<strong>Resolution:</strong> {{ report.resolution_comment }}</p>
+{% endif %}
+{% if user == report.reported_by %}
+    <a href="{% url 'report_edit' report.pk %}">Edit</a>
+{% endif %}
+{% if user.is_superuser or user.role in ('admin', 'tutor', 'guide') %}
+    <a href="{% url 'report_review' report.pk %}">Review / Resolve</a>
+{% endif %}
+{% endblock %}

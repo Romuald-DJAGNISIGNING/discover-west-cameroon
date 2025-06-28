@@ -1,220 +1,210 @@
-# tourism/tests.py
-
 from django.urls import reverse
-from rest_framework.test import APITestCase, APIClient
-from rest_framework import status
-from users.models import CustomUser
-from .models import Category, Attraction, LocalSite, TourPlan
+from rest_framework.test import APITestCase
+from django.core.files.uploadedfile import SimpleUploadedFile
+from django.contrib.auth import get_user_model
+from villages.models import Village
+from .models import (
+    TouristicAttraction, SocialImmersionExperience, HostingFamilyExperience,
+    TourismActivity, TouristFeedback, TouristComment, SharedTouristMedia
+)
+from PIL import Image
+from io import BytesIO
 
-class TourismAPITestCase(APITestCase):
+User = get_user_model()
+
+def create_test_image():
+    file = BytesIO()
+    image = Image.new('RGB', (100, 100), 'white')
+    image.save(file, 'jpeg')
+    file.seek(0)
+    return file
+
+class TourismAppTests(APITestCase):
     def setUp(self):
-        self.client = APIClient()
-        self.user = CustomUser.objects.create_user(
-            email="testuser@gmail.com",
-            username="testuser",
-            phone_number="+237612345678",
-            full_name="Test User",
-            password="testpass123"
+        self.tutor = User.objects.create_user(
+            username="tutor",
+            email="tutor@westcameroon.com",
+            phone_number="+237600000026",
+            password="tutorpass",
+            role="tutor"
         )
-        self.client.force_authenticate(user=self.user)
-
-        self.category = Category.objects.create(name="Historical", description="Historical places")
-        self.attraction = Attraction.objects.create(
-            name="Mount Cameroon", 
-            description="Highest peak in West Africa", 
-            location="Buea", 
-            image="test.jpg",
-            category=self.category
+        self.guide = User.objects.create_user(
+            username="guide",
+            email="guide@westcameroon.com",
+            phone_number="+237600000027",
+            password="guidepass",
+            role="guide"
         )
-        self.site = LocalSite.objects.create(
-            name="Fon's Palace",
-            description="Traditional palace in Bamenda",
-            location="Bamenda",
-            image="palace.jpg",
-            category=self.category
+        self.learner = User.objects.create_user(
+            username="learner",
+            email="learner@westcameroon.com",
+            phone_number="+237600000028",
+            password="learnerpass",
+            role="learner"
         )
-        self.tour_plan = TourPlan.objects.create(
-            title="2 Days Mount Cameroon Hike",
-            description="Experience hiking the tallest mountain",
-            price=50000,
-            duration="2 days",
-            guide=self.user
+        self.village = Village.objects.create(
+            name="Dschang",
+            department="Menoua",
+            description="University town.",
+            population=200000,
+        )
+        self.attraction = TouristicAttraction.objects.create(
+            name="Museum of Civilization",
+            description="Showcase of Cameroon's cultures.",
+            village=self.village,
+            latitude=5.45,
+            longitude=10.05,
+            added_by=self.tutor
+        )
+        self.immersion = SocialImmersionExperience.objects.create(
+            title="Bamileke Life",
+            description="Live with locals, learn the culture.",
+            village=self.village,
+            start_date="2025-07-01",
+            end_date="2025-07-10",
+            host_family="Foumbotsop Family",
+            activities="Farming, Storytelling",
+            live_cooking=True,
+            added_by=self.tutor
+        )
+        self.family = HostingFamilyExperience.objects.create(
+            family_name="Nana Family",
+            description="Warm welcoming Bamileke family.",
+            village=self.village,
+            address="Rue du marché, Dschang",
+            can_host=4,
+            live_cooking=True,
+            added_by=self.guide
         )
 
-    def test_list_categories(self):
-        response = self.client.get(reverse('category-list'))
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
+    def authenticate(self, user):
+        self.client.force_authenticate(user=user)
 
-    def test_create_category(self):
-        data = {"name": "Cultural", "description": "Cultural heritage"}
-        response = self.client.post(reverse('category-list'), data)
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-
-    def test_list_attractions(self):
-        response = self.client.get(reverse('attraction-list'))
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-    def test_list_local_sites(self):
-        response = self.client.get(reverse('localsite-list'))
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-    def test_list_tour_plans(self):
-        response = self.client.get(reverse('tourplan-list'))
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-    def test_create_tour_plan(self):
+    def test_create_attraction(self):
+        self.authenticate(self.tutor)
+        url = reverse('attraction-list')
         data = {
-            "title": "3 Days Cultural Tour",
-            "description": "Explore cultural sites in West Cameroon",
-            "price": 75000,
-            "duration_days": 3,
-            "guide": self.user.id,
-            "attraction_ids": [self.attraction.id, self.site.id]
+            "name": "Lac Baleng",
+            "description": "A beautiful crater lake.",
+            "village": self.village.id,
+            "latitude": 5.12345,
+            "longitude": 10.12345
         }
-        response = self.client.post(reverse('tourplan-list'), data)
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(TourPlan.objects.count(), 2)
+        response = self.client.post(url, data)
+        self.assertEqual(response.status_code, 201)
+        self.assertTrue(TouristicAttraction.objects.filter(name="Lac Baleng").exists())
 
-    def test_tour_plan_detail(self):
-        response = self.client.get(reverse('tourplan-detail', kwargs={'pk': self.tour_plan.id}))
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data['title'], self.tour_plan.title)
-
-    def test_update_tour_plan(self):
+    def test_learner_cannot_create_attraction(self):
+        self.authenticate(self.learner)
+        url = reverse('attraction-list')
         data = {
-            "title": "Updated Tour Plan",
-            "description": "Updated description",
-            "price": 60000,
-            "duration_days": 2,
-            "guide": self.user.id,
-            "attraction_ids": [self.attraction.id]
+            "name": "Chutes de la Menoua",
+            "description": "Waterfalls.",
+            "village": self.village.id,
+            "latitude": 5.12,
+            "longitude": 10.12
         }
-        response = self.client.put(reverse('tourplan-detail', kwargs={'pk': self.tour_plan.id}), data)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.tour_plan.refresh_from_db()
-        self.assertEqual(self.tour_plan.title, "Updated Tour Plan")
+        response = self.client.post(url, data)
+        self.assertEqual(response.status_code, 403)
 
-    def test_delete_tour_plan(self):
-        response = self.client.delete(reverse('tourplan-detail', kwargs={'pk': self.tour_plan.id}))
-        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-        self.assertEqual(TourPlan.objects.count(), 0)
+    def test_add_feedback_comment_and_media_to_attraction(self):
+        self.authenticate(self.learner)
+        # Test feedback
+        url = reverse('attraction-add-feedback', args=[self.attraction.id])
+        data = {"content": "Amazing!", "rating": 5}
+        response = self.client.post(url, data)
+        self.assertEqual(response.status_code, 201)
+        
+        # Test comment
+        url = reverse('attraction-add-comment', args=[self.attraction.id])
+        data = {"content": "Great for families."}
+        response = self.client.post(url, data)
+        self.assertEqual(response.status_code, 201)
+        
+        # Test media
+        url = reverse('attraction-add-media', args=[self.attraction.id])
+        image_file = create_test_image()
+        image = SimpleUploadedFile(
+            name='test.jpg',
+            content=image_file.read(),
+            content_type='image/jpeg'
+        )
+        response = self.client.post(
+            url,
+            {'image': image, 'caption': 'Test caption'},
+            format='multipart'
+        )
+        self.assertEqual(response.status_code, 201, msg=response.data)
 
-    def test_create_attraction_with_category(self):
+    def test_feedback_stars(self):
+        self.authenticate(self.learner)
+        url = reverse('attraction-add-feedback', args=[self.attraction.id])
+        data = {"content": "Nice", "rating": 3}
+        response = self.client.post(url, data)
+        self.assertEqual(response.status_code, 201)
+        feedback = TouristFeedback.objects.first()
+        self.assertEqual(feedback.rating, 3)
+        self.assertEqual(feedback.content, "Nice")
+
+    def test_activities_linking(self):
+        self.authenticate(self.guide)
+        url = reverse('tourismactivity-list')
         data = {
-            "name": "Limbe Botanic Garden",
-            "description": "A beautiful garden in Limbe",
-            "location": "Limbe",
-            "image": "garden.jpg",
-            "category_id": self.category.id
+            "name": "Guided Tour",
+            "description": "Learn about Bamileke culture.",
+            "attraction": self.attraction.id,
         }
-        response = self.client.post(reverse('attraction-list'), data)
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(Attraction.objects.count(), 2)
-        self.assertEqual(Attraction.objects.last().name, "Limbe Botanic Garden")
-
-    def test_create_local_site(self):
+        response = self.client.post(url, data)
+        self.assertEqual(response.status_code, 201)
+        
         data = {
-            "name": "Bamenda Grand Mall",
-            "description": "Shopping mall in Bamenda",
-            "location": "Bamenda",
-            "image": "mall.jpg",
-            "category_id": self.category.id
+            "name": "Cooking Class",
+            "description": "Make ndolé.",
+            "immersion": self.immersion.id,
         }
-        response = self.client.post(reverse('localsite-list'), data)
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(LocalSite.objects.count(), 2)
-        self.assertEqual(LocalSite.objects.last().name, "Bamenda Grand Mall")
-
-    def test_category_detail(self):
-        response = self.client.get(reverse('category-detail', kwargs={'pk': self.category.id}))
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data['name'], self.category.name)
-        self.assertEqual(response.data['description'], self.category.description)
-
-    def test_update_category(self):
+        response = self.client.post(url, data)
+        self.assertEqual(response.status_code, 201)
+        
         data = {
-            "name": "Updated Historical",
-            "description": "Updated description for historical places"
+            "name": "Harvest Festival",
+            "description": "Participate in festival.",
+            "family": self.family.id,
         }
-        response = self.client.put(reverse('category-detail', kwargs={'pk': self.category.id}), data)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.category.refresh_from_db()
-        self.assertEqual(self.category.name, "Updated Historical")
-        self.assertEqual(self.category.description, "Updated description for historical places")
+        response = self.client.post(url, data)
+        self.assertEqual(response.status_code, 201)
 
-    def test_delete_category(self):
-        response = self.client.delete(reverse('category-detail', kwargs={'pk': self.category.id}))
-        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-        self.assertEqual(Category.objects.count(), 0)
+    def test_family_experience_feedback(self):
+        self.authenticate(self.learner)
+        url = reverse('hostingfamily-add-feedback', args=[self.family.id])
+        data = {"content": "Very welcoming!", "rating": 5}
+        response = self.client.post(url, data)
+        self.assertEqual(response.status_code, 201)
 
-    def test_create_tour_plan_without_guide(self):
-        data = {
-            "title": "Solo Tour Plan",
-            "description": "A tour plan without a guide",
-            "price": 30000,
-            "duration_days": 1,
-            "attraction_ids": [self.attraction.id]
-        }
-        response = self.client.post(reverse('tourplan-list'), data)
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(TourPlan.objects.count(), 2)
-        self.assertIsNone(TourPlan.objects.last().guide)
-
-    def test_create_tour_plan_with_invalid_attraction(self):
-        data = {
-            "title": "Invalid Tour Plan",
-            "description": "Tour plan with non-existent attraction",
-            "price": 40000,
-            "duration_days": 2,
-            "guide": self.user.id,
-            "attraction_ids": [9999]  # Non-existent attraction ID
-        }
-        response = self.client.post(reverse('tourplan-list'), data)
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-        self.assertEqual(TourPlan.objects.count(), 1)
-
-    def test_create_attraction_without_category(self):
-        data = {
-            "name": "New Attraction",
-            "description": "An attraction without a category",
-            "location": "Yaoundé",
-            "image": "attraction.jpg"
-        }
-        response = self.client.post(reverse('attraction-list'), data)
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-        self.assertEqual(Attraction.objects.count(), 1)
-
-    def test_create_local_site_without_category(self):
-        data = {
-            "name": "New Local Site",
-            "description": "A local site without a category",
-            "location": "Douala",
-            "image": "localsite.jpg"
-        }
-        response = self.client.post(reverse('localsite-list'), data)
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-        self.assertEqual(LocalSite.objects.count(), 1)  
-
-    def test_list_tour_plans_with_filter(self):
-        response = self.client.get(reverse('tourplan-list'), {'guide': self.user.id})
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 1)
-        self.assertEqual(response.data[0]['title'], self.tour_plan.title)
-
-    def test_list_attractions_by_category(self):
-        response = self.client.get(reverse('attraction-list'), {'category': self.category.id})
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 1)
-        self.assertEqual(response.data[0]['name'], self.attraction.name)
-
-    def test_list_local_sites_by_category(self):
-        response = self.client.get(reverse('localsite-list'), {'category': self.category.id})
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 1)
-        self.assertEqual(response.data[0]['name'], self.site.name)
-
-    def test_tour_plan_with_attractions(self):
-        response = self.client.get(reverse('tourplan-detail', kwargs={'pk': self.tour_plan.id}))
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertIn('attractions', response.data)
-        self.assertEqual(len(response.data['attractions']), 0)
+    def test_social_immersion_feedback_comment_media(self):
+        self.authenticate(self.learner)
+        # Test feedback
+        url = reverse('socialimmersion-add-feedback', args=[self.immersion.id])
+        data = {"content": "Life changing", "rating": 4}
+        response = self.client.post(url, data)
+        self.assertEqual(response.status_code, 201)
+        
+        # Test comment
+        url = reverse('socialimmersion-add-comment', args=[self.immersion.id])
+        data = {"content": "I learned so much!"}
+        response = self.client.post(url, data)
+        self.assertEqual(response.status_code, 201)
+        
+        # Test media
+        url = reverse('socialimmersion-add-media', args=[self.immersion.id])
+        image_file = create_test_image()
+        image = SimpleUploadedFile(
+            name='test.jpg',
+            content=image_file.read(),
+            content_type='image/jpeg'
+        )
+        response = self.client.post(
+            url,
+            {'image': image, 'caption': 'Test caption'},
+            format='multipart'
+        )
+        self.assertEqual(response.status_code, 201, msg=response.data)

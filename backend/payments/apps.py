@@ -1,5 +1,3 @@
-
-
 from django.apps import AppConfig
 
 class PaymentsConfig(AppConfig):
@@ -8,5 +6,5 @@ class PaymentsConfig(AppConfig):
     verbose_name = 'Payments Management'
     label = 'payments'
 
-def ready(self):
-    import payments.signals
+    def ready(self):
+        import payments.signals

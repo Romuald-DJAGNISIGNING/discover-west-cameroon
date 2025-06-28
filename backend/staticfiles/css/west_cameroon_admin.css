@@ -1,0 +1,371 @@
+/*
+    west_cameroun_admin.css
+    Advanced Django Admin theming for Discover West Cameroon.
+    Inspired by the vibrant culture, Bamileke patterns, landscapes, and colors of the West Region of Cameroon.
+*/
+
+/* --- ROOT COLOR PALETTE --- */
+:root {
+    --west-primary: #186F3D;     /* Deep forest green */
+    --west-secondary: #F4B400;   /* Golden yellow */
+    --west-accent: #E24329;      /* Bamileke red */
+    --west-dark: #26190F;        /* Dark wood */
+    --west-light: #F7F6F2;       /* Light background */
+    --west-highlight: #2F9E41;   /* Lighter green for highlights */
+    --west-shadow: rgba(24, 111, 61, 0.08);
+
+    --bamileke-pattern: url('/static/patterns/bamileke_pattern.svg');
+    --region-map: url('/static/patterns/west_region_map.png');
+}
+
+/* --- GENERAL ADMIN BACKGROUND & TEXT --- */
+body, .content-wrapper {
+    background: var(--west-light) var(--bamileke-pattern) repeat top left;
+    color: var(--west-dark);
+    font-family: 'Poppins', 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    background-size: 340px auto;
+}
+
+/* --- HEADER & NAVBAR --- */
+.main-header, .navbar, .navbar.navbar-static-top {
+    background: linear-gradient(90deg, var(--west-primary) 65%, var(--west-accent) 100%);
+    color: #fff;
+    border-bottom: 4px solid var(--west-secondary);
+}
+.main-header .logo, .navbar-brand {
+    font-weight: bold;
+    color: var(--west-secondary) !important;
+    letter-spacing: 1.5px;
+    font-size: 2rem;
+    background: none !important;
+}
+.main-header .navbar .nav > li > a,
+.main-header .navbar .navbar-custom-menu > .nav > li > a {
+    color: #fff !important;
+}
+.main-header .navbar .nav > li > a:hover,
+.main-header .navbar .navbar-custom-menu > .nav > li > a:hover {
+    background: var(--west-highlight);
+    color: #fff !important;
+}
+
+/* --- SIDEBAR --- */
+.main-sidebar, .sidebar {
+    background: var(--west-primary) var(--bamileke-pattern) repeat-y right top;
+    color: #fff;
+    border-right: 6px solid var(--west-accent);
+    background-size: 210px auto;
+}
+.sidebar-menu > li > a,
+.sidebar .user-panel > .info {
+    color: #fff;
+    font-weight: 500;
+}
+.sidebar-menu > li.active > a,
+.sidebar-menu > li > a:hover {
+    background: var(--west-accent);
+    color: #fff !important;
+}
+.sidebar .logo {
+    background: url('/static/patterns/west_cameroun_logo.png') center/contain no-repeat;
+    min-height: 80px;
+}
+
+/* --- BAMILEKE PATTERN SEPARATORS (SVG or PNG) --- */
+.bamileke-separator {
+    background: var(--bamileke-pattern) repeat-x;
+    height: 16px;
+    margin: 24px 0;
+}
+
+/* --- REGION MAP BACKGROUND (DASHBOARD) --- */
+.dashboard-module {
+    background: var(--region-map) no-repeat right bottom/180px auto, var(--west-light);
+    border: 1.5px solid var(--west-accent);
+    border-radius: 14px;
+    box-shadow: 0 4px 24px var(--west-shadow);
+    margin-bottom: 30px;
+}
+
+.dashboard-module h2 {
+    color: var(--west-primary);
+    font-family: 'Montserrat', serif;
+    letter-spacing: 1px;
+    font-size: 1.5em;
+}
+
+/* --- TABLES --- */
+.table, .results table, .change-list table {
+    background: #fff;
+    border-radius: 7px;
+    border: 1.5px solid var(--west-highlight);
+    box-shadow: 0 2px 12px var(--west-shadow);
+}
+.table th, .results th {
+    background: var(--west-secondary);
+    color: var(--west-dark);
+    font-weight: bold;
+    border-bottom: 2px solid var(--west-accent);
+}
+.table tr:nth-child(even), .results tbody tr:nth-child(even) {
+    background: #F6F8E7;
+}
+.table tr.selected, .results tbody tr.selected {
+    background: var(--west-highlight) !important;
+    color: #fff;
+}
+
+/* --- BUTTONS --- */
+.btn, .button, input[type="submit"].default, .object-tools .addlink {
+    background: var(--west-primary);
+    color: #fff !important;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.btn:hover, .button:hover, input[type="submit"].default:hover, .object-tools .addlink:hover {
+    background: var(--west-accent);
+    color: #fff !important;
+}
+
+/* --- FORM FIELDS & INPUTS --- */
+input, select, textarea {
+    border: 1.5px solid var(--west-primary);
+    border-radius: 5px;
+    box-shadow: none;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+input:focus, select:focus, textarea:focus {
+    border-color: var(--west-accent);
+    box-shadow: 0 0 0 2px var(--west-highlight);
+}
+
+/* --- HIGHLIGHT IMPORTANT NOTICES --- */
+.messagelist .success {
+    background: var(--west-highlight);
+    color: #fff;
+}
+.messagelist .error {
+    background: var(--west-accent);
+    color: #fff;
+}
+.messagelist .warning {
+    background: var(--west-secondary);
+    color: #26190F;
+}
+
+/* --- CUSTOM FOOTER --- */
+.main-footer {
+    background: var(--west-dark);
+    color: var(--west-secondary);
+    font-size: 1.1rem;
+    border-top: 4px solid var(--west-accent);
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* --- USER AVATAR & PROFILE --- */
+.user-panel .image img,
+.navbar-custom-menu .user-image {
+    border: 2.5px solid var(--west-accent);
+    border-radius: 50%;
+    background: #fff;
+}
+
+/* --- LOGIN PAGE --- */
+.login-page, .login-box {
+    background: var(--west-light) var(--bamileke-pattern) repeat top left;
+}
+
+.login-logo{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.login-logo, .login-box-msg {
+    font-family: 'Montserrat', serif;
+    color: var(--west-primary);
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-shadow: 1px 2px 0 var(--west-secondary);
+}
+.login-box-body {
+    border: 2px solid var(--west-primary);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.96);
+    box-shadow: 0 2px 14px var(--west-shadow);
+}
+
+/* --- CUSTOM FONTS (add via static or CDN) --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;600&display=swap');
+
+/* --- SPECIAL ELEMENTS: BAMILEKE MASKS & SYMBOLS (SVG) --- */
+/* Example: Add mask SVGs as background for headers or special modules */
+.special-header {
+    background: url('/static/patterns/bamileke_mask.svg') left center no-repeat;
+    background-size: 48px 48px;
+    padding-left: 60px;
+    color: var(--west-accent);
+    font-family: 'Poppins', 'Montserrat', serif;
+    font-size: 1.6rem;
+}
+
+/* --- MEDIA QUERIES FOR RESPONSIVENESS --- */
+@media (max-width: 900px) {
+    body, .content-wrapper {
+        background-size: 180px auto;
+    }
+    .dashboard-module {
+        background-size: 110px auto;
+    }
+}
+
+/* --- OPTIONAL: ANIMATED ACCENT BAR (Bamileke beadwork) --- */
+.animated-accent-bar {
+    height: 8px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--west-accent),
+        var(--west-accent) 12px,
+        var(--west-secondary) 12px,
+        var(--west-secondary) 24px,
+        var(--west-primary) 24px,
+        var(--west-primary) 36px
+    );
+    animation: bead-move 5s linear infinite;
+    margin-bottom: 15px;
+}
+@keyframes bead-move {
+    0% { background-position-x: 0; }
+    100% { background-position-x: 72px; }
+}
+
+/* --- WEST REGION MOTIFS & SYMBOLS --- */
+/* We can add PNG/SVG of Bamileke hats, masks, woodcarvings, or region map as decorative elements throughout the admin! */
+/* --- WEST REGION MOTIFS & SYMBOLS --- */
+
+/* Example 1: Bamileke Hat Badge */
+.bamileke-hat-badge {
+    width: 42px;
+    height: 42px;
+    display: inline-block;
+    background: url('/static/patterns/bamileke_hat.svg') center/contain no-repeat;
+    border-radius: 50%;
+    border: 2.5px solid #E24329; /* Bamileke red */
+    margin-right: 8px;
+    vertical-align: middle;
+    box-shadow: 0 2px 8px rgba(226, 67, 41, 0.13);
+}
+
+/* Example 2: Bamileke Mask Decoration (e.g. for headers) */
+.bamileke-mask-header {
+    background: url('/static/patterns/bamileke_mask.svg') left center no-repeat;
+    background-size: 38px 38px;
+    padding-left: 50px;
+    font-family: 'Montserrat', serif;
+    color: #E24329;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+}
+
+/* Example 3: Woodcarving Divider */
+.woodcarving-divider {
+    background: url('/static/patterns/woodcarving_divider.svg') repeat-x left center;
+    height: 18px;
+    margin: 28px 0 18px 0;
+    opacity: 0.82;
+}
+
+/* Example 4: Region Map Watermark */
+.region-map-watermark {
+    background: url('/static/patterns/west_region_map.png') no-repeat center center;
+    background-size: 260px auto;
+    opacity: 0.06;
+    position: absolute;
+    bottom: 16px;
+    right: 12px;
+    width: 260px;
+    height: 170px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Example 5: Decorative Bamileke Border (top or bottom of sections) */
+.bamileke-border-top {
+    background: url('/static/patterns/bamileke_border.svg') repeat-x top left;
+    height: 11px;
+    width: 100%;
+}
+.bamileke-border-bottom {
+    background: url('/static/patterns/bamileke_border.svg') repeat-x bottom left;
+    height: 11px;
+    width: 100%;
+}
+
+/* Example 6: Applying motifs to admin change list header */
+.changeform-header, .module h2, .module caption {
+    position: relative;
+    padding-left: 55px;
+}
+.changeform-header::before,
+.module h2::before,
+.module caption::before {
+    content: "";
+    display: inline-block;
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url('/static/patterns/bamileke_mask.svg') center/contain no-repeat;
+    border-radius: 50%;
+    box-shadow: 0 1.5px 7px #E2432920;
+}
+
+
+/* Login page specific styling */
+.login-page .brand-link {
+    width: 100%;
+    justify-content: center;
+}
+
+.login-page .brand-image {
+    height: 80px;
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Center and resize the logo */
+.jazzmin .brand-link {
+    text-align: center;
+    padding: 10px;
+}
+
+.jazzmin .brand-image {
+    float: none;
+    max-height: 60px;  /* Adjust this value for your desired size */
+    width: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Adjust the login box alignment */
+.jazzmin .login-box {
+    margin-top: 20px;
+}
+
+.jazzmin .login-logo {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* If you want the logo in the login page to match */
+.jazzmin .login-logo img {
+    max-height: 80px;  /* Slightly larger for login page */
+    width: auto;
+}
+/* --- END --- */

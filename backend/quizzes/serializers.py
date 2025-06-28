@@ -1,41 +1,34 @@
-
-
 from rest_framework import serializers
-from .models import Quiz, Question, Choice, QuizSubmission
+from .models import Quiz, Question, Choice, QuizAttempt, QuestionResponse
 
 class ChoiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Choice
-        fields = ['id', 'text', 'is_correct']
-
+        fields = ['id', 'text']
 
 class QuestionSerializer(serializers.ModelSerializer):
-    choices = ChoiceSerializer(many=True)
+    choices = ChoiceSerializer(many=True, read_only=True)
 
     class Meta:
         model = Question
-        fields = ['id', 'text', 'choices']
-
+        fields = ['id', 'quiz', 'type', 'text', 'order', 'choices']
 
 class QuizSerializer(serializers.ModelSerializer):
     questions = QuestionSerializer(many=True, read_only=True)
-    created_by = serializers.StringRelatedField()
-
     class Meta:
         model = Quiz
-        fields = ['id', 'title', 'description', 'created_by', 'created_at', 'questions']
+        fields = ['id', 'title', 'description', 'village', 'attraction', 'created_by', 'created_at', 'questions']
 
-
-class QuizCreateSerializer(serializers.ModelSerializer):
+class QuestionResponseSerializer(serializers.ModelSerializer):
+    selected_choices = ChoiceSerializer(many=True, read_only=True)
     class Meta:
-        model = Quiz
-        fields = ['id', 'title', 'description']
+        model = QuestionResponse
+        fields = ['id', 'question', 'selected_choices', 'text_answer']
 
-
-class QuizSubmissionSerializer(serializers.ModelSerializer):
-    user = serializers.StringRelatedField(read_only=True)
-    quiz = serializers.StringRelatedField(read_only=True)
-
+class QuizAttemptSerializer(serializers.ModelSerializer):
+    responses = QuestionResponseSerializer(many=True, read_only=True)
+    quiz = QuizSerializer(read_only=True)
+    user = serializers.CharField(source='user.username', read_only=True)
     class Meta:
-        model = QuizSubmission
-        fields = ['id', 'user', 'quiz', 'score', 'submitted_at']
+        model = QuizAttempt
+        fields = ['id', 'quiz', 'user', 'started_at', 'completed_at', 'score', 'feedback', 'responses']

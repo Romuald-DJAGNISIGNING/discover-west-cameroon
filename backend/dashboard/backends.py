@@ -1,20 +1,13 @@
+"""
+Custom backends for dashboard analytics or potential alternate authentication/authorization mechanisms.
+Currently a stub; extend for advanced analytics, custom dashboard data, or admin/analytics SSO.
+"""
 
-from django.contrib.auth.backends import ModelBackend
-from django.contrib.auth import get_user_model
-
-User = get_user_model()
-
-class DashboardBackend(ModelBackend):
-    """
-    Custom backend for dashboard-specific authentication or permission checks,
-    if needed in the future.
-    """
-    def authenticate(self, request, username=None, password=None, **kwargs):
-        # Use default authentication for now
-        return super().authenticate(request, username, password, **kwargs)
-
-    def get_user(self, user_id):
-        try:
-            return User.objects.get(pk=user_id)
-        except User.DoesNotExist:
-            return None
+class DashboardAnalyticsBackend:
+    def fetch_custom_stats(self, user):
+        # Example: Custom analytics logic
+        # Extend this method to return stats relevant to the platform or user
+        return {
+            "custom_stat": 42,
+            "user_widgets": user.dashboard_widgets.count(),
+        }

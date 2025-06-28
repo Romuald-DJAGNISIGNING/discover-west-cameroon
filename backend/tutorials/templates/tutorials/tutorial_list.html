@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Tutorials</h2>
+{% if user.role in ("tutor","guide","admin") or user.is_superuser %}
+<a href="{% url 'tutorial_create' %}">Add a tutorial</a>
+{% endif %}
+<ul>
+  {% for tutorial in tutorials %}
+    <li>
+      <a href="{% url 'tutorial_detail' tutorial.pk %}">{{ tutorial.title }}</a>
+      ({{ tutorial.category.name }}) - {{ tutorial.created_by }}
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -1,21 +1,16 @@
 from rest_framework import serializers
-from .models import SupportTicket
+from .models import SupportTicket, SupportMessage
+
+class SupportMessageSerializer(serializers.ModelSerializer):
+    user_username = serializers.CharField(source="user.username", read_only=True)
+    class Meta:
+        model = SupportMessage
+        fields = "__all__"
 
 class SupportTicketSerializer(serializers.ModelSerializer):
-    user = serializers.PrimaryKeyRelatedField(read_only=True)
-    user_email = serializers.ReadOnlyField(source='user.email')
-
+    created_by_username = serializers.CharField(source="created_by.username", read_only=True)
+    assigned_to_username = serializers.CharField(source="assigned_to.username", read_only=True)
+    messages = SupportMessageSerializer(many=True, read_only=True)
     class Meta:
         model = SupportTicket
-        fields = [
-            'id',
-            'user',
-            'user_email',
-            'subject',
-            'message',
-            'category',
-            'status',
-            'created_at',
-            'updated_at',
-        ]
-        read_only_fields = ['id', 'user_email', 'created_at', 'updated_at']
+        fields = "__all__"

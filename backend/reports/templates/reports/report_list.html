@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Reports</h2>
+<a href="{% url 'report_create' %}">Submit a new report</a>
+<ul>
+  {% for report in reports %}
+    <li>
+      <a href="{% url 'report_detail' report.pk %}">{{ report.title }}</a>
+      ({{ report.get_type_display }}) - {{ report.status }}
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -1,43 +1,34 @@
 from django.db import models
-from django.contrib.auth import get_user_model
-from django.utils.translation import gettext_lazy as _
-
-
-User = get_user_model()
-
-REVIEW_TARGET_CHOICES = [
-    ('guide', _("Touristic Guide")),
-    ('tutor', _("Tutor")),
-    ('site', _("Tourist Site")),
-    ('festival', _("Festival")),
-    ('village', _("Village")),
-]
+from django.conf import settings
+from villages.models import Village
+from tourism.models import TouristicAttraction, HostingFamilyExperience, SocialImmersionExperience
+from festivals.models import Festival
 
 class Review(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_("User"))
-    target_type = models.CharField(_("Target Type"), max_length=50, choices=REVIEW_TARGET_CHOICES)
-    target_id = models.PositiveIntegerField(_("Target ID"))
-    rating = models.PositiveIntegerField(_("Rating"), default=5)
-    comment = models.TextField(_("Comment"), blank=True, null=True)
-    parent = models.ForeignKey(
-        'self',
-        null=True,
-        blank=True,
-        related_name='replies',
-        on_delete=models.CASCADE,
-        verbose_name=_("Parent Review")
-    )
-    created_at = models.DateTimeField(_("Created At"), auto_now_add=True)
+    RATING_CHOICES = [(i, str(i)) for i in range(1, 6)]
+    # Generic link fields; only one should be set per review
+    village = models.ForeignKey(Village, related_name="reviews", null=True, blank=True, on_delete=models.CASCADE)
+    attraction = models.ForeignKey(TouristicAttraction, related_name="reviews", null=True, blank=True, on_delete=models.CASCADE)
+    festival = models.ForeignKey(Festival, related_name="reviews", null=True, blank=True, on_delete=models.CASCADE)
+    hosting_family = models.ForeignKey(HostingFamilyExperience, related_name="reviews", null=True, blank=True, on_delete=models.CASCADE)
+    social_immersion = models.ForeignKey(SocialImmersionExperience, related_name="reviews", null=True, blank=True, on_delete=models.CASCADE)
+
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    rating = models.PositiveSmallIntegerField(choices=RATING_CHOICES)
+    title = models.CharField(max_length=255)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ['-created_at']
-        verbose_name = _("Review")
-        verbose_name_plural = _("Reviews")
+        unique_together = (
+            ("user", "village"),
+            ("user", "attraction"),
+            ("user", "festival"),
+            ("user", "hosting_family"),
+            ("user", "social_immersion"),
+        )
 
     def __str__(self):
-        return _("%(user)s rated %(target_type)s %(target_id)s (%(rating)s/5)") % {
-            "user": self.user.email,
-            "target_type": self.target_type,
-            "target_id": self.target_id,
-            "rating": self.rating,
-        }
+        target = self.village or self.attraction or self.festival or self.hosting_family or self.social_immersion
+        return f"{self.user} review on {target}"

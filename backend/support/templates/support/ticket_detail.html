@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Ticket: {{ ticket.subject }}</h2>
+<p><strong>Priority:</strong> {{ ticket.get_priority_display }}</p>
+<p><strong>Status:</strong> {{ ticket.status }}</p>
+<p><strong>Message:</strong> {{ ticket.message }}</p>
+<p><strong>Created by:</strong> {{ ticket.created_by }}</p>
+<p><strong>Assigned to:</strong> {{ ticket.assigned_to }}</p>
+<p><strong>Created:</strong> {{ ticket.created_at }}</p>
+{% if ticket.village %}<p><strong>Village:</strong> {{ ticket.village }}</p>{% endif %}
+{% if ticket.attraction %}<p><strong>Attraction:</strong> {{ ticket.attraction }}</p>{% endif %}
+{% if ticket.festival %}<p><strong>Festival:</strong> {{ ticket.festival }}</p>{% endif %}
+{% if ticket.resolution %}<p><strong>Resolution:</strong> {{ ticket.resolution }}</p>{% endif %}
+
+<h3>Messages</h3>
+<ul>
+  {% for message in messages %}
+    <li>{{ message.created_at }} - {{ message.user }}: {{ message.message }}</li>
+  {% endfor %}
+</ul>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ message_form.as_p }}
+    <button type="submit">Send message</button>
+</form>
+{% if user.is_superuser or user.role in ('admin', 'tutor', 'guide') %}
+    <a href="{% url 'support_ticket_assign' ticket.pk %}">Assign</a>
+    <a href="{% url 'support_ticket_resolve' ticket.pk %}">Resolve</a>
+{% endif %}
+{% endblock %}

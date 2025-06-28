@@ -1,21 +1,19 @@
 from django.contrib import admin
-from .models import Tutorial, TutorialCategory, TutorialStep
+from .models import TutorialCategory, Tutorial, TutorialComment
 
 @admin.register(TutorialCategory)
 class TutorialCategoryAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description')
+    list_display = ("name", "description")
+    search_fields = ("name",)
 
 @admin.register(Tutorial)
 class TutorialAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'author', 'created_at')
-    search_fields = ('title', 'content')
-    list_filter = ('category', 'created_at')
-    date_hierarchy = 'created_at'
-    ordering = ('-created_at',)
+    list_display = ("title", "category", "is_published", "created_by", "created_at")
+    list_filter = ("category", "is_published", "village", "attraction", "festival")
+    search_fields = ("title", "description")
+    raw_id_fields = ("created_by",)
 
-@admin.register(TutorialStep)
-class TutorialStepAdmin(admin.ModelAdmin):
-    list_display = ('tutorial', 'step_number', 'title')
-    search_fields = ('tutorial__title', 'title', 'content')
-    list_filter = ('tutorial',)
-    ordering = ('tutorial', 'step_number')
+@admin.register(TutorialComment)
+class TutorialCommentAdmin(admin.ModelAdmin):
+    list_display = ("tutorial", "user", "created_at")
+    search_fields = ("tutorial__title", "user__username", "comment")

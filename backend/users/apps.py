@@ -1,4 +1,3 @@
-
 from django.apps import AppConfig
 
 class UsersConfig(AppConfig):
@@ -7,6 +6,3 @@ class UsersConfig(AppConfig):
     verbose_name = "User Management"
     label = 'users'
 
-    
-    def ready(self):
-        import users.signals

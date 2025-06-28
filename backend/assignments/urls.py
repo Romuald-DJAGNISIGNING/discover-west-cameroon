@@ -1,21 +1,11 @@
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import AssignmentViewSet, AssignmentSubmissionViewSet
 
-
-from django.urls import path
-from .views import (
-    AssignmentListView,
-    AssignmentCreateView,
-    AssignmentDetailView,
-    AssignmentSubmissionCreateView,
-    AssignmentSubmissionListView,
-    AssignmentSubmissionDetailView,
-)
+router = DefaultRouter()
+router.register(r'assignments', AssignmentViewSet, basename='assignment')
+router.register(r'submissions', AssignmentSubmissionViewSet, basename='assignmentsubmission')
 
 urlpatterns = [
-    path('assignments/', AssignmentListView.as_view(), name='assignment-list'),
-    path('assignments/create/', AssignmentCreateView.as_view(), name='assignment-create'),
-    path('assignments/<int:pk>/', AssignmentDetailView.as_view(), name='assignment-detail'),
-    
-    path('submissions/', AssignmentSubmissionListView.as_view(), name='submission-list'),
-    path('submissions/create/', AssignmentSubmissionCreateView.as_view(), name='submission-create'),
-    path('submissions/<int:pk>/', AssignmentSubmissionDetailView.as_view(), name='submission-detail'),
+    path('', include(router.urls)),
 ]

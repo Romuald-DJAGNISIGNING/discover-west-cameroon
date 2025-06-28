@@ -1,13 +1,12 @@
+import os
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.core.validators import RegexValidator
 from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 from django.conf import settings
-import os
 
-
-# Choices
+# --- Choices ---
 GENDER_CHOICES = (
     ('male', _("Male")),
     ('female', _("Female")),
@@ -15,7 +14,8 @@ GENDER_CHOICES = (
 )
 
 USER_ROLE_CHOICES = (
-    ('student', _("Student")),
+    ('learner', _("Learner")),
+    ('visitor', _("Visitor")),
     ('tutor', _("Tutor")),
     ('guide', _("Touristic Guide")),
 )
@@ -24,7 +24,7 @@ def validate_gmail(value):
     if not value.lower().endswith('@gmail.com'):
         raise ValidationError(_("Only Gmail addresses are allowed."))
 
-# Custom User Manager
+# --- Custom User Manager ---
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, username, phone_number, password=None, **extra_fields):
         if not email:
@@ -40,11 +40,15 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault('is_superuser', True)
         return self.create_user(email, username, phone_number, password, **extra_fields)
 
-# Custom User Model
+# --- Custom User Model ---
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(_("Username"), max_length=150, unique=True)
     full_name = models.CharField(_("Full Name"), max_length=255)
-    email = models.EmailField(_("Email Address"), unique=True, validators=[validate_gmail])
+    email = models.EmailField(
+        _("Email Address"),
+        unique=True,
+        validators=[validate_gmail],  # Remove this validator if you want to allow non-Gmail for Google OAuth
+    )
     phone_regex = RegexValidator(
         regex=r'^\+?1?\d{9,15}$',
         message=_("Phone number must be entered in the format: '+237612345678'. Up to 15 digits allowed.")
@@ -83,3 +87,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def get_short_name(self):
         return self.username
 
+    @property
+    def profile_image_url(self):
+        if self.profile_picture:
+            return self.profile_picture.url
+        return settings.STATIC_URL + getattr(settings, 'DEFAULT_PROFILE_PIC', 'default.jpg')

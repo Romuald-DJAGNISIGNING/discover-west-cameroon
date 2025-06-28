@@ -1,23 +1,15 @@
 from django.contrib import admin
-from .models import Village, Attraction, LocalSite
+from .models import Village, VillageImage, VillageComment
+
+class VillageImageInline(admin.TabularInline):
+    model = VillageImage
+    extra = 1
 
 @admin.register(Village)
 class VillageAdmin(admin.ModelAdmin):
-    list_display = ('name', 'location', 'population', 'tourism_status', 'featured')
-    search_fields = ('name', 'location', 'language')
-    list_filter = ('tourism_status', 'featured', 'language')
-    ordering = ('name',)
+    list_display = ("name", "department", "population", "tourism_status")
+    search_fields = ("name", "department", "main_languages")
+    inlines = [VillageImageInline]
 
-@admin.register(Attraction)
-class AttractionAdmin(admin.ModelAdmin):
-    list_display = ('name', 'village', 'attraction_type', 'tourist_rating')
-    search_fields = ('name', 'village__name')
-    list_filter = ('attraction_type', 'village')
-    ordering = ('name',)
-
-@admin.register(LocalSite)
-class LocalSiteAdmin(admin.ModelAdmin):
-    list_display = ('name', 'village', 'site_type')
-    search_fields = ('name', 'village__name')
-    list_filter = ('site_type', 'village')
-    ordering = ('name',)
+admin.site.register(VillageImage)
+admin.site.register(VillageComment)

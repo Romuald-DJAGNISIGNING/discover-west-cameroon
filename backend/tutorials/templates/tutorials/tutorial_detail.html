@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ tutorial.title }}</h2>
+<p><strong>Category:</strong> {{ tutorial.category.name }}</p>
+<p><strong>Description:</strong> {{ tutorial.description }}</p>
+<p><strong>Content:</strong> {{ tutorial.content|linebreaks }}</p>
+{% if tutorial.video_url %}
+<p><strong>Video:</strong> <a href="{{ tutorial.video_url }}">{{ tutorial.video_url }}</a></p>
+{% endif %}
+{% if tutorial.pdf_file %}
+<p><strong>PDF:</strong> <a href="{{ tutorial.pdf_file.url }}">Download PDF</a></p>
+{% endif %}
+{% if tutorial.image %}
+<p><img src="{{ tutorial.image.url }}" style="max-width:300px"></p>
+{% endif %}
+<p><strong>Created by:</strong> {{ tutorial.created_by }}</p>
+<p><strong>Created:</strong> {{ tutorial.created_at }}</p>
+{% if tutorial.village %}<p><strong>Village:</strong> {{ tutorial.village }}</p>{% endif %}
+{% if tutorial.attraction %}<p><strong>Attraction:</strong> {{ tutorial.attraction }}</p>{% endif %}
+{% if tutorial.festival %}<p><strong>Festival:</strong> {{ tutorial.festival }}</p>{% endif %}
+
+<h3>Comments</h3>
+<ul>
+  {% for comment in comments %}
+    <li>{{ comment.created_at }} - {{ comment.user }}: {{ comment.comment }}</li>
+  {% endfor %}
+</ul>
+<form method="post">
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+    <button type="submit">Add comment</button>
+</form>
+{% if user == tutorial.created_by %}
+    <a href="{% url 'tutorial_edit' tutorial.pk %}">Edit</a>
+{% endif %}
+{% endblock %}

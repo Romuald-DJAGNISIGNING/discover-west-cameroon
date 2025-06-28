@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Assign Ticket: {{ ticket.subject }}</h2>
+  <form method="post">
+    {% csrf_token %}
+    <label for="assigned_to">Assign to user ID:</label>
+    <input type="number" name="assigned_to" id="assigned_to" value="{{ ticket.assigned_to.id if ticket.assigned_to }}">
+    <button type="submit">Assign</button>
+  </form>
+{% endblock %}

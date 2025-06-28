@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ village.name }} - Map</title>
+    <link rel="stylesheet" href="{% static 'backend/static/css/leaflet.css' %}" />
+    <style>
+        #map { height: 500px; }
+        /* Fix default icon paths */
+        .leaflet-default-icon-path {
+            background-image: url("{% static 'backend/static/img/marker-icon.png' %}");
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    
+    <script src="{% static 'backend/static/js/leaflet.js' %}"></script>
+    <script>
+        // Fix Leaflet's default image paths
+        L.Icon.Default.imagePath = "{% static 'backend/static/img/' %}";
+        
+        var map = L.map('map').setView([{{ village.latitude }}, {{ village.longitude }}], 14);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+        
+        L.marker([{{ village.latitude }}, {{ village.longitude }}]).addTo(map)
+            .bindPopup("<b>{{ village.name }}</b>");
+    </script>
+</body>
+</html>

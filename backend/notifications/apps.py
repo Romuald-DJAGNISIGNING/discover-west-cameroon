@@ -7,5 +7,4 @@ class NotificationsConfig(AppConfig):
     label = 'notifications'
 
     def ready(self):
-        import notifications.signals  # Ensures signals like auto-send on event load when app is ready
-
+        import notifications.signals

@@ -1,25 +1,30 @@
 from django.contrib import admin
-from .models import Quiz, Question, Choice, UserQuizProgress
+from .models import Quiz, Question, Choice, QuizAttempt, QuestionResponse
 
-class AnswerInline(admin.TabularInline):
+class ChoiceInline(admin.TabularInline):
     model = Choice
-    extra = 2
+    extra = 1
 
-@admin.register(Question)
-class QuestionAdmin(admin.ModelAdmin):
-    inlines = [AnswerInline]
-    list_display = ('text', 'quiz')
+class QuestionInline(admin.TabularInline):
+    model = Question
+    extra = 1
 
 @admin.register(Quiz)
 class QuizAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_at')
+    list_display = ("title", "village", "attraction", "created_by", "created_at")
+    inlines = [QuestionInline]
 
-@admin.register(UserQuizProgress)
-class UserQuizProgressAdmin(admin.ModelAdmin):
-    list_display = ('user', 'quiz', 'score', 'completed')
+@admin.register(Question)
+class QuestionAdmin(admin.ModelAdmin):
+    list_display = ("quiz", "type", "text", "order")
+    inlines = [ChoiceInline]
 
-@admin.register(Choice)
-class ChoiceAdmin(admin.ModelAdmin):
-    list_display = ('question', 'text', 'is_correct')
-    list_filter = ('is_correct', 'question')
-    search_fields = ('text',)
+@admin.register(QuizAttempt)
+class QuizAttemptAdmin(admin.ModelAdmin):
+    list_display = ("quiz", "user", "score", "completed_at")
+
+@admin.register(QuestionResponse)
+class QuestionResponseAdmin(admin.ModelAdmin):
+    list_display = ("attempt", "question")
+
+admin.site.register(Choice)

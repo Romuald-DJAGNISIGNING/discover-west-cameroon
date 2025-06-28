@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Reviews</h2>
+<a href="{% url 'review_create' %}">Add a review</a>
+<ul>
+  {% for review in reviews %}
+    <li>
+      <a href="{% url 'review_detail' review.pk %}">{{ review.title }}</a>
+      ({{ review.rating }}★) - {{ review.user }}
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

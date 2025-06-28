@@ -3,10 +3,12 @@ from .models import Assignment, AssignmentSubmission
 
 @admin.register(Assignment)
 class AssignmentAdmin(admin.ModelAdmin):
-    list_display = ('title', 'assigned_by', 'assigned_to', 'due_date', 'created_at')
-    list_filter = ('assigned_by', 'assigned_to', 'due_date')
+    list_display = ('title', 'assignment_type', 'assigned_by', 'assigned_to', 'due_date', 'is_active', 'created_at')
+    list_filter = ('assignment_type', 'assigned_by', 'assigned_to', 'due_date', 'is_active')
+    search_fields = ('title', 'description', 'assigned_by__username', 'assigned_to__username')
 
 @admin.register(AssignmentSubmission)
 class AssignmentSubmissionAdmin(admin.ModelAdmin):
-    list_display = ('assignment', 'student', 'submitted_at', 'grade')
-    list_filter = ('assignment', 'student')
+    list_display = ('assignment', 'student', 'submitted_at', 'grade', 'is_active')
+    list_filter = ('assignment', 'student', 'is_active')
+    search_fields = ('assignment__title', 'student__username', 'comment')

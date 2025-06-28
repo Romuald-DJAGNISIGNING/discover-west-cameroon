@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ review.title }}</h2>
+<p><strong>Rating:</strong> {{ review.rating }}★</p>
+<p><strong>Content:</strong> {{ review.content }}</p>
+<p><strong>User:</strong> {{ review.user }}</p>
+<p><strong>Created:</strong> {{ review.created_at }}</p>
+{% if review.village %}<p><strong>Village:</strong> {{ review.village }}</p>{% endif %}
+{% if review.attraction %}<p><strong>Attraction:</strong> {{ review.attraction }}</p>{% endif %}
+{% if review.festival %}<p><strong>Festival:</strong> {{ review.festival }}</p>{% endif %}
+{% if review.hosting_family %}<p><strong>Family:</strong> {{ review.hosting_family }}</p>{% endif %}
+{% if review.social_immersion %}<p><strong>Immersion:</strong> {{ review.social_immersion }}</p>{% endif %}
+{% if user == review.user %}
+    <a href="{% url 'review_edit' review.pk %}">Edit</a>
+{% endif %}
+{% endblock %}

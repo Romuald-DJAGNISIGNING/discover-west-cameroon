@@ -1,80 +1,55 @@
 from rest_framework import serializers
-from django.contrib.auth import get_user_model
 from .models import (
-    UserActivityLog,
-    DailySiteStatistics,
-    TourBookingStatistic,
-    TutorBookingStatistic,
-    GuideBookingStatistic,
-    FeedbackSummary,
-    SystemNotification
+    UserActivityLog, DailySiteStatistics, TourBookingStatistic, TutorBookingStatistic,
+    GuideBookingStatistic, FeedbackSummary, SystemNotification, DashboardStat, DashboardWidget
 )
 
-User = get_user_model()
-
-
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['id', 'username', 'email']
-
-
 class UserActivityLogSerializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True)
-
+    user = serializers.StringRelatedField()
     class Meta:
         model = UserActivityLog
-        fields = ['id', 'user', 'action', 'description', 'timestamp']
-
+        fields = "__all__"
 
 class DailySiteStatisticsSerializer(serializers.ModelSerializer):
     class Meta:
         model = DailySiteStatistics
-        fields = [
-            'id', 'date', 'new_users', 'active_users',
-            'total_bookings', 'total_tour_bookings',
-            'total_tutor_bookings', 'total_guide_bookings',
-            'total_reviews', 'total_reports'
-        ]
-
+        fields = "__all__"
 
 class TourBookingStatisticSerializer(serializers.ModelSerializer):
     class Meta:
         model = TourBookingStatistic
-        fields = ['id', 'date', 'tour_type', 'location', 'bookings_count']
-
+        fields = "__all__"
 
 class TutorBookingStatisticSerializer(serializers.ModelSerializer):
-    tutor = UserSerializer(read_only=True)
-
+    tutor = serializers.StringRelatedField()
     class Meta:
         model = TutorBookingStatistic
-        fields = ['id', 'date', 'tutor', 'subject', 'bookings_count']
-
+        fields = "__all__"
 
 class GuideBookingStatisticSerializer(serializers.ModelSerializer):
-    guide = UserSerializer(read_only=True)
-
+    guide = serializers.StringRelatedField()
     class Meta:
         model = GuideBookingStatistic
-        fields = ['id', 'date', 'guide', 'region', 'bookings_count']
-
+        fields = "__all__"
 
 class FeedbackSummarySerializer(serializers.ModelSerializer):
     class Meta:
         model = FeedbackSummary
-        fields = [
-            'id', 'date', 'average_rating',
-            'total_feedback', 'positive_feedback', 'negative_feedback'
-        ]
-
+        fields = "__all__"
 
 class SystemNotificationSerializer(serializers.ModelSerializer):
-    recipients = UserSerializer(many=True, read_only=True)
-
+    recipients = serializers.StringRelatedField(many=True)
     class Meta:
         model = SystemNotification
-        fields = [
-            'id', 'title', 'message',
-            'notification_type', 'created_at', 'recipients', 'is_read'
-        ]
+        fields = "__all__"
+
+class DashboardStatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DashboardStat
+        fields = "__all__"
+
+class DashboardWidgetSerializer(serializers.ModelSerializer):
+    user = serializers.StringRelatedField()
+    class Meta:
+        model = DashboardWidget
+        fields = "__all__"

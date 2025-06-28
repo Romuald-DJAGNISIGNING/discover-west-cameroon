@@ -1,4 +1,3 @@
-
 from django.apps import AppConfig
 
 class TutorialsConfig(AppConfig):
@@ -6,6 +5,3 @@ class TutorialsConfig(AppConfig):
     name = 'tutorials'
     verbose_name = 'Tutorials Management'
     label = 'tutorials'
-
-    def ready(self):
-        import tutorials.signals   

@@ -1,11 +1,18 @@
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import (
+    CustomSessionViewSet,
+    SessionMaterialViewSet,
+    SessionFeedbackViewSet,
+    InAppNotificationViewSet,
+)
 
-
-from django.urls import path
-from . import views
+router = DefaultRouter()
+router.register(r'sessions', CustomSessionViewSet, basename='customsession')
+router.register(r'materials', SessionMaterialViewSet, basename='sessionmaterial')
+router.register(r'feedbacks', SessionFeedbackViewSet, basename='sessionfeedback')
+router.register(r'notifications', InAppNotificationViewSet, basename='inappnotification')
 
 urlpatterns = [
-    path('sessions/', views.CustomSessionListCreateView.as_view(), name='session-list-create'),
-    path('sessions/<int:pk>/', views.CustomSessionDetailView.as_view(), name='session-detail'),
-    path('sessions/<int:pk>/confirm/', views.ConfirmSessionView.as_view(), name='session-confirm'),
+    path('', include(router.urls)),
 ]
-

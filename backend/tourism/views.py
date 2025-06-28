@@ -1,57 +1,104 @@
-
-
-from rest_framework import generics
-from .models import Category, Attraction, LocalSite, TourPlan
-from .serializers import (
-    CategorySerializer,
-    AttractionSerializer,
-    LocalSiteSerializer,
-    TourPlanSerializer
+from rest_framework import viewsets, permissions, status
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from .models import (
+    TouristicAttraction, SocialImmersionExperience, HostingFamilyExperience,
+    TourismActivity, TouristFeedback, TouristComment, SharedTouristMedia
 )
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from .serializers import (
+    TouristicAttractionSerializer, SocialImmersionExperienceSerializer, HostingFamilyExperienceSerializer,
+    TourismActivitySerializer, TouristFeedbackSerializer, TouristCommentSerializer, SharedTouristMediaSerializer
+)
+from .permissions import IsGuideOrTutorOrReadOnly
 
-# Category Views
-class CategoryListCreateView(generics.ListCreateAPIView):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+class BaseTourismViewSet(viewsets.ModelViewSet):
+    def get_parent_field_name(self):
+        if isinstance(self, TouristicAttractionViewSet):
+            return 'attraction'
+        elif isinstance(self, SocialImmersionExperienceViewSet):
+            return 'immersion'
+        elif isinstance(self, HostingFamilyExperienceViewSet):
+            return 'family'
+        return None
 
-class CategoryDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    @action(detail=True, methods=['post'], permission_classes=[permissions.IsAuthenticated])
+    def add_feedback(self, request, pk=None):
+        parent = self.get_object()
+        data = request.data.copy()
+        data.update({
+            'user': request.user.id,
+            self.get_parent_field_name(): parent.id
+        })
+        serializer = TouristFeedbackSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# Attraction Views
-class AttractionListCreateView(generics.ListCreateAPIView):
-    queryset = Attraction.objects.all()
-    serializer_class = AttractionSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    @action(detail=True, methods=['post'], permission_classes=[permissions.IsAuthenticated])
+    def add_comment(self, request, pk=None):
+        parent = self.get_object()
+        data = request.data.copy()
+        data.update({
+            'user': request.user.id,
+            self.get_parent_field_name(): parent.id
+        })
+        serializer = TouristCommentSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class AttractionDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Attraction.objects.all()
-    serializer_class = AttractionSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    @action(detail=True, methods=['post'], permission_classes=[permissions.IsAuthenticated])
+    def add_media(self, request, pk=None):
+        parent = self.get_object()
+        data = request.data.copy()
+        data[self.get_parent_field_name()] = parent.id
+        
+        serializer = SharedTouristMediaSerializer(
+            data=data,
+            context={'request': request}
+        )
+        
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# Local Site Views
-class LocalSiteListCreateView(generics.ListCreateAPIView):
-    queryset = LocalSite.objects.all()
-    serializer_class = LocalSiteSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+class TouristicAttractionViewSet(BaseTourismViewSet):
+    queryset = TouristicAttraction.objects.all()
+    serializer_class = TouristicAttractionSerializer
+    permission_classes = [IsGuideOrTutorOrReadOnly]
+    filterset_fields = ['village']
 
-class LocalSiteDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = LocalSite.objects.all()
-    serializer_class = LocalSiteSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+class SocialImmersionExperienceViewSet(BaseTourismViewSet):
+    queryset = SocialImmersionExperience.objects.all()
+    serializer_class = SocialImmersionExperienceSerializer
+    permission_classes = [IsGuideOrTutorOrReadOnly]
+    filterset_fields = ['village']
 
-# Tour Plan Views
-class TourPlanListCreateView(generics.ListCreateAPIView):
-    queryset = TourPlan.objects.all()
-    serializer_class = TourPlanSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+class HostingFamilyExperienceViewSet(BaseTourismViewSet):
+    queryset = HostingFamilyExperience.objects.all()
+    serializer_class = HostingFamilyExperienceSerializer
+    permission_classes = [IsGuideOrTutorOrReadOnly]
+    filterset_fields = ['village']
 
-class TourPlanDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = TourPlan.objects.all()
-    serializer_class = TourPlanSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+class TourismActivityViewSet(viewsets.ModelViewSet):
+    queryset = TourismActivity.objects.all()
+    serializer_class = TourismActivitySerializer
+    permission_classes = [IsGuideOrTutorOrReadOnly]
 
+class TouristFeedbackViewSet(viewsets.ModelViewSet):
+    queryset = TouristFeedback.objects.all()
+    serializer_class = TouristFeedbackSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
+class TouristCommentViewSet(viewsets.ModelViewSet):
+    queryset = TouristComment.objects.all()
+    serializer_class = TouristCommentSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+class SharedTouristMediaViewSet(viewsets.ModelViewSet):
+    queryset = SharedTouristMedia.objects.all()
+    serializer_class = SharedTouristMediaSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
